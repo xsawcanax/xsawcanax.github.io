@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uruchomienie aplikacji w kontenerze</title>
+</head>
+<body>
+
+    <h1>Uruchomienie aplikacji w kontenerze</h1>
+
+    <p>Aby uruchomić aplikację w kontenerze za pomocą Dockera, wykonaj następujące kroki:</p>
+
+    <ol>
+        <li>
+            <strong>Zainstaluj Docker:</strong><br>
+            Upewnij się, że Docker jest zainstalowany na Twoim systemie. Możesz pobrać go z oficjalnej strony Docker: <a href="https://www.docker.com/get-started" target="_blank">https://www.docker.com/get-started</a>.
+        </li>
+        <li>
+            <strong>Przygotuj obraz:</strong><br>
+            Jeśli nie masz obrazu aplikacji, który chciałbyś użyć, musisz go przygotować. Możesz utworzyć plik Dockerfile, który zawiera instrukcje do zbudowania obrazu na podstawie Twojej aplikacji.
+        </li>
+        <li>
+            <strong>Zbuduj obraz:</strong><br>
+            Otwórz terminal w katalogu zawierającym Dockerfile i wykonaj polecenie: <code>docker build -t nazwa_obrazu:tag .</code>
+        </li>
+        <li>
+            <strong>Uruchom kontener:</strong><br>
+            Po zbudowaniu obrazu możesz uruchomić kontener: <code>docker container run -p 3000:3000 nazwa_obrazu:tag</code><br>
+            Opcja <code>-p</code> przekierowuje porty, więc jeśli Twoja aplikacja działa na porcie 3000, to będzie dostępna na porcie 3000 na Twoim lokalnym systemie.
+        </li>
+    </ol>
+
+    <h2>Czym jest kontener?</h2>
+
+    <p>Kontener to jednostka oprogramowania, która zawiera wszystko, co jest potrzebne do uruchomienia aplikacji, wraz z kodem, środowiskiem wykonawczym, bibliotekami, zależnościami i konfiguracją. Kontenery są izolowane od siebie i od systemu operacyjnego, co pozwala na przenośność aplikacji między różnymi środowiskami.</p>
+
+    <h2>Nawiązywanie połączenia z kontenerem</h2>
+
+    <p>Aby nawiązać połączenie z kontenerem, możesz użyć kilku różnych metod, w zależności od tego, co chcesz osiągnąć. Oto kilka popularnych sposobów:</p>
+
+    <ol>
+        <li><strong>Uruchamianie interaktywnego trybu kontenera:</strong><br>
+            <code>docker run -it nazwa_obrazu -</code> - To polecenie uruchomi kontener w trybie interaktywnym, co pozwoli Ci na bezpośrednie korzystanie z powłoki wewnątrz kontenera.
+        </li>
+        <li><strong>Uruchamianie polecenia w kontenerze:</strong><br>
+            <code>docker exec -it nazwa_kontenera polecenie</code> - Polecenie <code>docker exec</code> pozwala uruchamiać polecenia w działającym kontenerze. To umożliwia interakcję z kontenerem, nie wchodząc w tryb interaktywny.
+        </li>
+        <li><strong>Uruchamianie aplikacji w tle:</strong><br>
+            Jeśli chcesz uruchomić kontener w tle i nawiązać z nim połączenie później, możesz użyć: <code>docker container run -d nazwa_obrazu</code> - A następnie użyj <code>docker exec</code> do uruchomienia poleceń w kontenerze.
+        </li>
+        <li><strong>Port Forwarding:</strong><br>
+            Jeśli aplikacja w kontenerze udostępnia usługę sieciową (np. serwer HTTP) i chcesz uzyskać do niej dostęp z hosta, użyj przekierowania portów: <code>docker run -p host_port:container_port nazwa_obrazu</code> - Następnie możesz połączyć się z aplikacją w kontenerze za pomocą <code>localhost:host_port</code>.
+        </li>
+        <li><strong>Docker
