@@ -58,7 +58,50 @@
 
     <p><a href="docker3przyklad.html">Przykład</a></p>
 
-    <!-- Reszta zawartości rozdziału 3 -->
+    <h2>Budowanie własnego obrazu kontenera</h1>
+
+    <h3>1. Napisz Dockerfile:</h2>
+    <p>Stwórz plik Dockerfile zawierający instrukcje budowy obrazu. Przykład był wcześniej przedstawiony. Możesz dostosować ten plik do swoich potrzeb w zależności od aplikacji i technologii, której używasz.</p>
+
+    <h3>2. Przygotuj pliki projektu:</h2>
+    <p>Umieść plik Dockerfile w katalogu projektu. Upewnij się, że Dockerfile znajduje się razem z innymi plikami i kodem źródłowym, które są niezbędne do zbudowania i uruchomienia aplikacji.</p>
+
+    <h3>3. Otwórz terminal:</h2>
+    <p>Uruchom terminal lub wiersz poleceń, a następnie przejdź do katalogu projektu, gdzie znajduje się Dockerfile.</p>
+
+    <h3>4. Uruchom polecenie docker build:</h2>
+    <p>Użyj poniższego polecenia, aby zbudować obraz Dockerowy. Zastąp <code>nazwa-obrazu</code> dowolną nazwą, którą chcesz przypisać swojemu obrazowi.</p>
+    <code>docker build -t nazwa-obrazu .</code>
+
+    <p>Opcja <code>-t</code> umożliwia nadanie obrazowi taga (nazwy). Kropka na końcu oznacza bieżący katalog jako kontekst budowy dla Dockerfile.</p>
+
+    <h3>5. Poczekaj na zakończenie budowy:</h2>
+    <p>Docker przetworzy instrukcje z Dockerfile i zbuduje obraz. W tym procesie zainstalowane zostaną wszystkie zależności i skopiowane pliki aplikacji.</p>
+
+    <h3>6. Sprawdź zbudowany obraz:</h2>
+    <p>Po zakończeniu budowy obrazu możesz sprawdzić jego dostępność za pomocą poniższego polecenia:</p>
+    <code>docker images</code>
+
+    <p>Znajdziesz swój obraz na liście wraz z informacjami, takimi jak ID obrazu, nazwa i tag.</p>
+
+    <h3>Teraz masz własny zbudowany obraz, który możesz uruchomić jako kontener. Aby to zrobić, użyj polecenia <code>docker run</code>:</h2>
+    <code>docker container run -p PORT_HOST:PORT_CONTAINER nazwa-obrazu</code>
+
+    <p>Zastąp <code>PORT_HOST</code> numerem portu na twoim hoście, a <code>PORT_CONTAINER</code> numerem portu, na którym działa Twoja aplikacja wewnątrz kontenera.</p>
+
+    <h3>Docker korzysta z systemu warstw obrazów, co umożliwia efektywne dzielenie i ponowne użycie komponentów obrazów. Każda instrukcja w Dockerfile powoduje utworzenie nowej warstwy obrazu. Warstwy te są następnie łączone w jedną całość, a wynikowy obraz składa się z tych warstw.</h2>
+
+    <h2>Optymalizacja plików Dockerfile pod kątem wykorzystania pamięci podręcznej warstw obrazów</h2>
+    <p>Optymalizacja pliku Dockerfile pod kątem wykorzystania pamięci podręcznej warstw obrazów jest ważna, ponieważ pozwala na skorzystanie z mechanizmu pamięci podręcznej (cache) warstw w celu przyspieszenia procesu budowy obrazu. Oto kilka praktyk, które pomogą zoptymalizować Dockerfile:</p>
+
+    <ol>
+        <li><strong>Użyj konkretnego obrazu bazowego:</strong><br>
+            Zamiast używać ogólnego obrazu, takiego jak <code>ubuntu:latest</code>, użyj konkretnej wersji, na przykład <code>ubuntu:18.04</code>. To pozwala na uniknięcie niespodziewanych zmian w warstwie obrazu bazowego.
+            <code>FROM ubuntu:18.04</code>
+        </li>
+        <li><strong>Uporządkuj instrukcje:</strong><br>
+            Uporządkuj instrukcje w taki sposób, aby najbardziej zmienne elementy (np. kody źródłowe) były umieszczane na końcu pliku Dockerfile. To pozwoli na efektywne wykorzystanie pamięci podręcznej warstw obrazów.
+        </li
 
 </body>
 </html>
