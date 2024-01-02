@@ -30,6 +30,30 @@
         a:hover {
             text-decoration: underline;
         }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            font-family: Arial, sans-serif;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+        }
     </style>
 </head>
 <body>
@@ -49,6 +73,7 @@
     </ul>
 
     <h3>Podstawowe komendy Dockera</h3>
+    
     <table>
         <thead>
             <tr>
@@ -58,60 +83,59 @@
         </thead>
         <tbody>
             <tr>
-                <td><code>docker container run {nazwa_obrazu}</code></td>
+                <td>docker container run {nazwa_obrazu}</td>
                 <td>Uruchamia nowy kontener z określonego obrazu.</td>
             </tr>
             <tr>
-                <td><code>docker ps</code></td>
+                <td>docker ps</td>
                 <td>Wyświetla listę uruchomionych kontenerów.</td>
             </tr>
             <tr>
-                <td><code>docker stop {id_kontenera}</code></td>
+                <td>docker stop {id_kontenera}</td>
                 <td>Zatrzymuje kontener o podanym ID.</td>
             </tr>
             <tr>
-                <td><code>docker container run -d {nazwa_obrazu}</code></td>
+                <td>docker container run -d {nazwa_obrazu}</td>
                 <td>Uruchamia kontener w tle (tryb detached).</td>
             </tr>
             <tr>
-                <td><code>docker system df</code></td>
+                <td>docker system df</td>
                 <td>Wyświetla informacje o zużyciu miejsca na dysku przez Docker na systemie.</td>
             </tr>
             <tr>
-                <td><code>docker image ls</code></td>
+                <td>docker image ls</td>
                 <td>Wyświetla listę dostępnych obrazów na systemie.</td>
             </tr>
             <tr>
-                <td><code>docker build -t {nazwa_obrazu} {ścieżka_do_katalogu_z_Dockerfile}</code></td>
+                <td>docker build -t {nazwa_obrazu} {ścieżka_do_katalogu_z_Dockerfile}</td>
                 <td>Buduje obraz Docker na podstawie pliku Dockerfile.</td>
             </tr>
             <tr>
-                <td><code>docker container rm {id_kontenera}</code></td>
+                <td>docker container rm {id_kontenera}</td>
                 <td>Usuwa kontener o podanym ID.</td>
             </tr>
             <tr>
-                <td><code>docker image rm {nazwa_obrazu}</code></td>
+                <td>docker image rm {nazwa_obrazu}</td>
                 <td>Usuwa obraz o podanej nazwie.</td>
             </tr>
             <tr>
-                <td><code>docker container inspect {id_kontenera}</code></td>
+                <td>docker container inspect {id_kontenera}</td>
                 <td>Wyświetla szczegółowe informacje o kontenerze o podanym ID.</td>
             </tr>
             <tr>
-                <td><code>docker exec -it {id_kontenera} /bin/bash</code></td>
+                <td>docker exec -it {id_kontenera} /bin/bash</td>
                 <td>Loguje się do działającego kontenera.</td>
             </tr>
             <tr>
-                <td><code>docker start {id_kontenera}</code></td>
+                <td>docker start {id_kontenera}</td>
                 <td>Wznowienie działania zatrzymanego kontenera o określonym identyfikatorze.</td>
             </tr>
             <tr>
-                <td><code>docker stop {id_kontenera}</code></td>
+                <td>docker stop {id_kontenera}</td>
                 <td>Zatrzymuje działanie kontenera o określonym identyfikatorze.</td>
             </tr>
         </tbody>
     </table>
-
 
     <h3>Przydatne zasoby</h3>
     <ul>
