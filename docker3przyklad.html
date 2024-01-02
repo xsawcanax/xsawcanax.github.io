@@ -22,28 +22,16 @@
 
     <h2>Przykładowy Dockerfile</h2>
     <code>
-        # Etap budowy
-        FROM golang:1.16 as builder
-
-        # Ustawienie katalogu roboczego wewnątrz kontenera
-        WORKDIR /app
-
-        # Skopiuj pliki z kodem źródłowym
-        COPY . .
-
-        # Zbuduj aplikację
-        RUN go build -o myapp
-
-        # Etap produkcyjny
-        FROM alpine:latest
-
-        # Ustawienie katalogu roboczego wewnątrz kontenera
-        WORKDIR /app
-
-        # Skopiuj binarny plik z poprzedniego etapu
-        COPY --from=builder /app/myapp .
-
-        # Domyślne polecenie do uruchomienia aplikacji
+        # Etap budowy<br>
+        FROM golang:1.16 as builder<br>
+        WORKDIR /app<br>
+        COPY . .<br>
+        RUN go build -o myapp<br>
+        
+        # Etap produkcyjny<br>
+        FROM alpine:latest<br>
+        WORKDIR /app<br>
+        COPY --from=builder /app/myapp .<br>
         CMD ["./myapp"]
     </code>
 
