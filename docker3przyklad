@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dockerfile Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border: 1px solid #ddd;
+            display: block;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dockerfile Example</h1>
+
+    <h2>Przykładowy Dockerfile</h2>
+    <code>
+        # Etap budowy
+        FROM golang:1.16 as builder
+
+        # Ustawienie katalogu roboczego wewnątrz kontenera
+        WORKDIR /app
+
+        # Skopiuj pliki z kodem źródłowym
+        COPY . .
+
+        # Zbuduj aplikację
+        RUN go build -o myapp
+
+        # Etap produkcyjny
+        FROM alpine:latest
+
+        # Ustawienie katalogu roboczego wewnątrz kontenera
+        WORKDIR /app
+
+        # Skopiuj binarny plik z poprzedniego etapu
+        COPY --from=builder /app/myapp .
+
+        # Domyślne polecenie do uruchomienia aplikacji
+        CMD ["./myapp"]
+    </code>
+
+    <h2>Wyjaśnienie kroków</h2>
+    <p>Kod Dockerfile składa się z dwóch etapów budowy:</p>
+    <ol>
+        <li>
+            <strong>Etap Budowy:</strong>
+            <pre>
+                FROM golang:1.16 as builder
+                WORKDIR /app
+                COPY . .
+                RUN go build -o myapp
+            </pre>
+        </li>
+        <li>
+            <strong>Etap Produkcyjny:</strong>
+            <pre>
+                FROM alpine:latest
+                WORKDIR /app
+                COPY --from=builder /app/myapp .
+                CMD ["./myapp"]
+            </pre>
+        </li>
+    </ol>
+
+    <p>
+        Ten Dockerfile umożliwia efektywne zbudowanie obrazu Dockerowego, który zawiera tylko niezbędne elementy do uruchomienia aplikacji, co przyczynia się do zmniejszenia rozmiaru obrazu i zwiększenia wydajności.
+    </p>
+</body>
+</html>
