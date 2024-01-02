@@ -31,6 +31,14 @@
             background-color: #007BFF;
             color: white;
         }
+
+        a {
+            color: #007BFF;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -38,11 +46,18 @@
     <h1>Nauka</h1>
 
     <table>
+        <thead>
+            <tr>
+                <th>Podstrony</th>
+                <th>Opis i Dokumentacja</th>
+            </tr>
+        </thead>
         <tbody>
             <tr>
                 <td><a href="docker.html">Docker</a></td>
+                <td>Platforma do konteneryzacji aplikacji. <a href="https://docs.docker.com/">Dokumentacja</a></td>
             </tr>
-            <!-- Dodaj więcej linków do innych podstron -->
+            <!-- Dodaj więcej wierszy dla innych podstron -->
         </tbody>
     </table>
 
