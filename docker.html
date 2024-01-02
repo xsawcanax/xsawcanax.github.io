@@ -49,21 +49,69 @@
     </ul>
 
     <h3>Podstawowe komendy Dockera</h3>
-    <ul>
-        <li><code>docker container run {nazwa_obrazu}</code> - Uruchamia nowy kontener z określonego obrazu.</li>
-        <li><code>docker ps</code> - Wyświetla listę uruchomionych kontenerów.</li>
-        <li><code>docker stop {id_kontenera}</code> - Zatrzymuje kontener o podanym ID.</li>
-        <li><code>docker container run -d {nazwa_obrazu}</code> - Uruchamia kontener w tle (tryb detached).</li>
-        <li><code>docker system df</code> - Wyświetla informacje o zużyciu miejsca na dysku przez Docker na systemie.</li>
-        <li><code>docker image ls</code> - Wyświetla listę dostępnych obrazów na systemie.</li>
-        <li><code>docker build -t {nazwa_obrazu} {ścieżka_do_katalogu_z_Dockerfile}</code> - Buduje obraz Docker na podstawie pliku Dockerfile.</li>
-        <li><code>docker container rm {id_kontenera}</code> - Usuwa kontener o podanym ID.</li>
-        <li><code>docker image rm {nazwa_obrazu}</code> - Usuwa obraz o podanej nazwie.</li>
-        <li><code>docker container inspect {id_kontenera}</code> - Wyświetla szczegółowe informacje o kontenerze o podanym ID.</li>
-        <li><code>docker exec -it {id_kontenera} /bin/bash</code> - Loguje się do działającego kontenera.</li>
-        <li><code>docker start {id_kontenera}</code> - Wznowienie działania zatrzymanego kontenera o określonym identyfikatorze.</li>
-        <li><code>docker stop {id_kontenera}</code> - Zatrzymuje działanie kontenera o określonym identyfikatorze.</li>
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Komenda</th>
+                <th>Opis</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>docker container run {nazwa_obrazu}</code></td>
+                <td>Uruchamia nowy kontener z określonego obrazu.</td>
+            </tr>
+            <tr>
+                <td><code>docker ps</code></td>
+                <td>Wyświetla listę uruchomionych kontenerów.</td>
+            </tr>
+            <tr>
+                <td><code>docker stop {id_kontenera}</code></td>
+                <td>Zatrzymuje kontener o podanym ID.</td>
+            </tr>
+            <tr>
+                <td><code>docker container run -d {nazwa_obrazu}</code></td>
+                <td>Uruchamia kontener w tle (tryb detached).</td>
+            </tr>
+            <tr>
+                <td><code>docker system df</code></td>
+                <td>Wyświetla informacje o zużyciu miejsca na dysku przez Docker na systemie.</td>
+            </tr>
+            <tr>
+                <td><code>docker image ls</code></td>
+                <td>Wyświetla listę dostępnych obrazów na systemie.</td>
+            </tr>
+            <tr>
+                <td><code>docker build -t {nazwa_obrazu} {ścieżka_do_katalogu_z_Dockerfile}</code></td>
+                <td>Buduje obraz Docker na podstawie pliku Dockerfile.</td>
+            </tr>
+            <tr>
+                <td><code>docker container rm {id_kontenera}</code></td>
+                <td>Usuwa kontener o podanym ID.</td>
+            </tr>
+            <tr>
+                <td><code>docker image rm {nazwa_obrazu}</code></td>
+                <td>Usuwa obraz o podanej nazwie.</td>
+            </tr>
+            <tr>
+                <td><code>docker container inspect {id_kontenera}</code></td>
+                <td>Wyświetla szczegółowe informacje o kontenerze o podanym ID.</td>
+            </tr>
+            <tr>
+                <td><code>docker exec -it {id_kontenera} /bin/bash</code></td>
+                <td>Loguje się do działającego kontenera.</td>
+            </tr>
+            <tr>
+                <td><code>docker start {id_kontenera}</code></td>
+                <td>Wznowienie działania zatrzymanego kontenera o określonym identyfikatorze.</td>
+            </tr>
+            <tr>
+                <td><code>docker stop {id_kontenera}</code></td>
+                <td>Zatrzymuje działanie kontenera o określonym identyfikatorze.</td>
+            </tr>
+        </tbody>
+    </table>
+
 
     <h3>Przydatne zasoby</h3>
     <ul>
