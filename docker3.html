@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tworzenie własnych obrazów Dockera</title>
+</head>
+<body>
+    <h1>Tworzenie własnych obrazów Dockera</h1>
+
+    <h2>Stosowanie obrazu kontenera z serwisu Docker Hub</h2>
+
+    <p>Aby użyć obrazu kontenera z serwisu Docker Hub, wykonaj poniższe kroki:</p>
+
+    <h3>1. Wyszukaj Obraz:</h3>
+    <p>Otwórz terminal i użyj polecenia <code>docker search</code>, aby znaleźć interesujący cię obraz na Docker Hub:</p>
+    <pre><code>docker search nazwa_obrazu</code></pre>
+
+    <h3>2. Pobierz Obraz:</h3>
+    <p>Użyj polecenia <code>docker pull</code>, aby pobrać obraz na swój lokalny system:</p>
+    <pre><code>docker pull nazwa_uzytkownika/nazwa_obrazu:tag</code></pre>
+    <p>Na przykład:</p>
+    <pre><code>docker pull nginx:latest</code></pre>
+
+    <h3>3. Uruchom Kontener:</h3>
+    <p>Uruchom kontener na podstawie pobranego obrazu:</p>
+    <pre><code>docker container run -p host_port:container_port nazwa_uzytkownika/nazwa_obrazu:tag</code></pre>
+    <p>Dla przykładu z serwerem Nginx:</p>
+    <pre><code>docker container run -p 8080:80 nginx:latest</code></pre>
+    <p>Opcja <code>-p</code> przekierowuje porty, więc aplikacja w kontenerze będzie dostępna na <code>http://localhost:8080</code>.</p>
+
+    <h3>4. Przeglądanie Obrazów i Kontenerów:</h3>
+    <p>Możesz sprawdzić dostępne obrazy za pomocą polecenia:</p>
+    <pre><code>docker images</code></pre>
+    <p>Aby zobaczyć uruchomione kontenery:</p>
+    <pre><code>docker ps</code></pre>
+
+    <h3>5. Zatrzymywanie i Usuwanie Kontenerów:</h3>
+    <p>Aby zatrzymać kontener, użyj polecenia:</p>
+    <pre><code>docker stop ID_kontenera</code></pre>
+    <p>Aby usunąć kontener:</p>
+    <pre><code>docker rm ID_kontenera</code></pre>
+
+    <h3>6. Zatrzymywanie i Usuwanie Obrazów:</h3>
+    <p>Aby zatrzymać obraz, użyj polecenia:</p>
+    <pre><code>docker rmi nazwa_uzytkownika/nazwa_obrazu:tag</code></pre>
+
+    <h3>7. Dodatkowe opcje:</h3>
+    <ul>
+        <li>Jeśli obraz wymaga uwierzytelnienia (prywatny obraz), użyj <code>docker login</code> przed pobraniem obrazu.</li>
+        <li>Jeśli potrzebujesz dostarczyć dane do kontenera (np. pliki konfiguracyjne), użyj opcji <code>-v</code> do mapowania katalogów.</li>
+    </ul>
+    <p>Przykład:</p>
+    <pre><code>docker run -v /sciezka/lokalna:/sciezka/w_kontenerze -p 8080:80 nazwa_uzytkownika/nazwa_obrazu:tag</code></pre>
+
+    <h2>Pisanie pliku Dockerfile</h2>
+
+    <p>Pisanie pliku Dockerfile jest kluczowym krokiem w tworzeniu obrazu Dockerowego. Dockerfile to plik tekstowy zawierający polecenia, które Docker wykorzystuje do automatycznego budowania obrazu. Poniżej znajdziesz prosty przykład pliku.</p>
+
+    <p><a href="https://www.notion.so/Przyk-ad-c489451a32f049d1bfcb55657bd28460?pvs=21">Przykład</a></p>
+
+    <!-- Reszta zawartości rozdziału 3 -->
+
+</body>
+</html>
