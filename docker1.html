@@ -16,6 +16,36 @@
 
     <p>Kontenery zdobywają popularność ze względu na ich zdolność do izolacji aplikacji, przenośności pomiędzy środowiskami, szybkiego wdrażania, skalowania i efektywnego zarządzania cyklem życia aplikacji, co czyni je atrakcyjnym rozwiązaniem dla organizacji praktykujących DevOps i dążących do ciągłej dostawy oprogramowania.</p>
 
+    <h2>Jak Docker wykonuje kontenery?</h2>
+    
+    <p>Docker wykonuje kontenery przy użyciu technologii konteneryzacji, której kluczowe elementy to namespace'y i cgroups.</p>
+    
+    <ol>
+        <li><strong>Namespace'y:</strong>
+            <ul>
+                <li><strong>Pid Namespace:</strong> Izoluje przestrzeń procesów, dzięki czemu procesy w jednym kontenerze są odizolowane od procesów w innych kontenerach i na hostzie.</li>
+                <li><strong>Network Namespace:</strong> Zapewnia izolację przestrzeni sieciowej, co oznacza, że interfejsy sieciowe, tabele routingu itp. są odseparowane dla każdego kontenera.</li>
+                <li><strong>Mount Namespace:</strong> Izoluje przestrzeń systemu plików, umożliwiając, aby kontenery miały własne systemy plików, niezależne od hosta i innych kontenerów.</li>
+            </ul>
+        </li>
+        <li><strong>cgroups (Control Groups):</strong> Cgroups umożliwiają kontrolę i ograniczenia zasobów, takich jak CPU, pamięć RAM, dysk itp., które mogą być przypisane do kontenerów. Pozwala to na efektywne zarządzanie zasobami systemowymi.</li>
+        <li><strong>Docker Daemon:</strong> Docker Daemon to tło procesu, który zarządza operacjami na kontenerach. Przyjmuje polecenia od użytkownika, komunikuje się z Docker API i zarządza cyklem życia kontenerów.</li>
+        <li><strong>Docker Client:</strong> Docker Client to interfejs linii komend lub interfejs graficzny, który pozwala użytkownikowi komunikować się z Docker Daemon, wysyłając polecenia i odbierając wyniki.</li>
+        <li><strong>Docker Image:</strong> Docker Image to szablon, na podstawie którego tworzone są kontenery. Zawiera wszystko, co jest potrzebne do uruchomienia aplikacji, w tym kod, zależności, konfigurację itp.</li>
+    </ol>
+    
+    <p>Proces wykonania kontenera w skrócie wygląda tak:</p>
+    
+    <ol>
+        <li>Użytkownik wydaje polecenie Docker Clienta, na przykład <code>docker run</code>.</li>
+        <li>Docker Client komunikuje się z Docker Daemon, który przetwarza to polecenie.</li>
+        <li>Docker Daemon sprawdza, czy istnieje odpowiedni Docker Image. Jeśli nie, pobiera go z Docker Hub lub innych źródeł.</li>
+        <li>Daemon tworzy nowy kontener na podstawie obrazu, konfiguruje namespace'y i cgroups, alokuje zasoby, a następnie uruchamia procesy wewnątrz kontenera.</li>
+        <li>Procesy w kontenerze są izolowane od innych procesów na systemie, a kontener ma własne środowisko wykonawcze i system plików.</li>
+    </ol>
+    
+    <p>Dzięki tym mechanizmom Docker osiąga izolację i przenośność, co pozwala na łatwe uruchamianie aplikacji w różnych środowiskach.</p>
+    
     <h2>Instalacja Dockera</h2>
 
     <p>Aby zainstalować Dockera na swoim komputerze, należy przejść na stronę <a href="https://docs.docker.com/get-docker/" target="_blank">oficjalnej dokumentacji Dockera</a> i postępować zgodnie z instrukcjami.</p>
