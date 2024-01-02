@@ -39,7 +39,6 @@
     <h3>Co to jest Docker?</h3>
     <p>Docker to narzędzie do konteneryzacji aplikacji. Pozwala na łatwe i szybkie uruchamianie aplikacji w izolowanych środowiskach.</p>
 
-    <h3>Przed rozpoczęciem</h3>
     <ul>
         <li><a href="https://www.notion.so/Zanim-zaczniesz-6bb6567347ec4015aa445230b7858a9d?pvs=21">Zanim zaczniesz</a></li>
         <li><a href="https://www.notion.so/Uruchomienie-aplikacji-w-kontenerze-nawi-zywanie-po-czenia-z-kontenerem-5d2507e25d8c40e4a5e4118fd2f44ef5?pvs=21">Uruchomienie aplikacji w kontenerze, nawiązywanie połączenia z kontenerem</a></li>
@@ -51,10 +50,19 @@
 
     <h3>Podstawowe komendy Dockera</h3>
     <ul>
-        <li><code>docker container run {nazwa_obrazu}</code> - uruchamia nowy kontener z określonego obrazu</li>
-        <li><code>docker ps</code> - wyświetla listę uruchomionych kontenerów</li>
-        <li><code>docker stop {id_kontenera}</code> - zatrzymuje kontener o podanym ID</li>
-        <li><code>docker system df</code> - służy do wyświetlenia informacji o zużyciu miejsca na dysku przez Docker na systemie</li>
+        <li><code>docker container run {nazwa_obrazu}</code> - Uruchamia nowy kontener z określonego obrazu.</li>
+        <li><code>docker ps</code> - Wyświetla listę uruchomionych kontenerów.</li>
+        <li><code>docker stop {id_kontenera}</code> - Zatrzymuje kontener o podanym ID.</li>
+        <li><code>docker container run -d {nazwa_obrazu}</code> - Uruchamia kontener w tle (tryb detached).</li>
+        <li><code>docker system df</code> - Wyświetla informacje o zużyciu miejsca na dysku przez Docker na systemie.</li>
+        <li><code>docker image ls</code> - Wyświetla listę dostępnych obrazów na systemie.</li>
+        <li><code>docker build -t {nazwa_obrazu} {ścieżka_do_katalogu_z_Dockerfile}</code> - Buduje obraz Docker na podstawie pliku Dockerfile.</li>
+        <li><code>docker container rm {id_kontenera}</code> - Usuwa kontener o podanym ID.</li>
+        <li><code>docker image rm {nazwa_obrazu}</code> - Usuwa obraz o podanej nazwie.</li>
+        <li><code>docker container inspect {id_kontenera}</code> - Wyświetla szczegółowe informacje o kontenerze o podanym ID.</li>
+        <li><code>docker exec -it {id_kontenera} /bin/bash</code> - Loguje się do działającego kontenera.</li>
+        <li><code>docker start {id_kontenera}</code> - Wznowienie działania zatrzymanego kontenera o określonym identyfikatorze.</li>
+        <li><code>docker stop {id_kontenera}</code> - Zatrzymuje działanie kontenera o określonym identyfikatorze.</li>
     </ul>
 
     <h3>Przydatne zasoby</h3>
