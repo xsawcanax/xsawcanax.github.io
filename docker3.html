@@ -102,6 +102,31 @@
         <li><strong>Uporządkuj instrukcje:</strong><br>
             Uporządkuj instrukcje w taki sposób, aby najbardziej zmienne elementy (np. kody źródłowe) były umieszczane na końcu pliku Dockerfile. To pozwoli na efektywne wykorzystanie pamięci podręcznej warstw obrazów.
         </li
+         <li><strong>Używaj wielu instrukcji COPY zamiast jednej:</strong><br>
+            W przypadku kopiowania wielu plików, stosuj wiele instrukcji <code>COPY</code> zamiast jednej. W ten sposób zmiany w jednym pliku nie wymuszają ponownego kopiowania wszystkich plików.
+            <pre><code>COPY requirements.txt .</code></pre>
+            <pre><code>COPY src/ /app/src/</code></pre>
+        </li>
+        <li><strong>Użyj instrukcji RUN w jednej linii:</strong><br>
+            Łącz kilka poleceń <code>RUN</code> w jednej linii, aby uniknąć tworzenia dodatkowych warstw dla każdego polecenia. To ogranicza liczbę warstw obrazu.
+            <pre><code>RUN apt-get update && \
+                apt-get install -y package1 package2 && \
+                apt-get clean && \
+                rm -rf /var/lib/apt/lists/*</code></pre>
+        </li>
+        <li><strong>Używaj .dockerignore:</strong><br>
+            Użyj pliku <code>.dockerignore</code>, aby pomóc zredukować ilość przesyłanych plików podczas budowy obrazu. Unikaj kopiowania zbędnych plików, takich jak pliki tymczasowe czy pliki konfiguracyjne z IDE.
+        </li>
+        <li><strong>Unikaj instalacji zbędnych pakietów:</strong><br>
+            Instaluj tylko te pakiety, które są niezbędne do działania aplikacji. Upewnij się, że każda zainstalowana paczka jest faktycznie wymagana.
+        </li>
+        <li><strong>Czyść niepotrzebne dane w jednym kroku:</strong><br>
+            Jeśli używasz instrukcji <code>RUN</code>, aby instalować pakiety, czyść cache i niepotrzebne pliki w jednym kroku, aby uniknąć dodatkowych warstw obrazu.
+            <pre><code>RUN apt-get update && \
+                apt-get install -y package1 package2 && \
+                apt-get clean && \
+                rm -rf /var/lib/apt/lists/*</code></pre>
+        </li>
 
 </body>
 </html>
