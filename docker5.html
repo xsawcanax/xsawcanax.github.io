@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korzystanie z rejestrów, repozytoriów i znaczników obrazów Docker</title>
+</head>
+<body>
+
+<h1>Korzystanie z rejestrów, repozytoriów i znaczników obrazów Docker</h1>
+
+<h2>1. Rejestr (Docker Registry):</h2>
+<p><strong>Definicja:</strong> Rejestr Dockerowy to centralne repozytorium do przechowywania i udostępniania obrazów Dockerowych.</p>
+<p><strong>Przykład:</strong> Docker Hub, Google Container Registry (GCR), Amazon Elastic Container Registry (ECR), własny prywatny rejestr.</p>
+
+<h2>2. Repozytorium (Docker Repository):</h2>
+<p><strong>Definicja:</strong> Repozytorium Dockerowe to kolekcja powiązanych ze sobą obrazów Dockerowych, zwykle różniących się znacznikami.</p>
+<p><strong>Przykład:</strong> W Docker Hub, repozytoria to nazwy użytkowników lub organizacji, a w nich znajdują się różne obrazy.</p>
+
+<h2>3. Obraz (Docker Image):</h2>
+<p><strong>Definicja:</strong> Obraz Dockerowy to szablon, z którego można utworzyć kontener. Zawiera system plików i parametry do uruchomienia aplikacji.</p>
+<p><strong>Przykład:</strong> <code>ubuntu:20.04</code> to obraz bazowy systemu Ubuntu w wersji 20.04.</p>
+
+<h2>4. Znacznik Obrazu (Docker Image Tag):</h2>
+<p><strong>Definicja:</strong> Znacznik obrazu to etykieta przypisana do konkretnego obrazu, umożliwiająca identyfikację konkretnej wersji.</p>
+<p><strong>Przykład:</strong> W <code>ubuntu:20.04</code>, <code>20.04</code> to znacznik wersji.</p>
+
+<h2>Korzystanie z Rejestrów, Repozytoriów i Znaczników w Praktyce:</h2>
+
+<h3>1. Pobieranie Obrazu:</h3>
+<p>Aby pobrać obraz z rejestracji, użyj polecenia <code>docker pull</code>. Na przykład:</p>
+<pre><code>docker pull ubuntu:20.04</code></pre>
+
+<h3>2. Wysyłanie Obrazu do Rejestru:</h3>
+<p>Aby udostępnić obraz publicznie lub prywatnie, można go wysłać do odpowiedniego rejestru. Przykład wysyłania do Docker Hub:</p>
+<pre><code>docker tag moj_obraz:moj_znacznik nazwa_uzytkownika/repozytorium:moj_znacznik
+docker push nazwa_uzytkownika/repozytorium:moj_znacznik</code></pre>
+
+<h3>3. Tworzenie Własnego Obrazu ze Znacznikiem:</h3>
+<p>Aby zbudować i oznaczyć własny obraz z określonym znacznikiem, użyj polecenia <code>docker build</code>. Przykład:</p>
+<pre><code>docker build -t moj_obraz:moj_znacznik .</code></pre>
+
+<h3>4. Użycie Znaczników w <code>docker-compose.yml</code>:</h3>
+<p>W pliku <code>docker-compose.yml</code> można używać znaczników do określenia wersji obrazów w kontenerach.</p>
+<pre>
+<code>
+services:
+  moj_serwis:
+    image: nazwa_uzytkownika/repozytorium:moj_znacznik
+</code>
+</pre>
+
+<h3>5. Używanie Wielu Znaczników:</h3>
+<p>Można używać wielu znaczników, aby identyfikować różne wersje tego samego obrazu, co ułatwia zarządzanie wersjami i środowiskami.</p>
+
+<h2>Umieszczanie własnych obrazów w rejestrach Docker Hub</h2>
+
+<h3>1. Zaloguj się do Docker Hub:</h3>
+<p>Jeśli nie masz jeszcze konta na Docker Hub, zarejestruj się na <a href="https://hub.docker.com/">https://hub.docker.com/</a>.</p>
+<p>Następnie zaloguj się do konta przy użyciu polecenia:</p>
+<pre><code>docker login</code></pre>
+<p>Podaj swoją nazwę użytkownika, hasło i adres e-mail.</p>
+
+<h3>2. Zbuduj swój obraz:</h3>
+<p>Przejdź do katalogu, gdzie znajduje się plik Dockerfile Twojego projektu.</p>
+<p>Użyj polecenia <code>docker build</code>, aby zbudować swój obraz. Przykład:</p>
+<pre><code>docker build -t nazwa_uzytkownika/moj_obraz:moj_znacznik .</code></pre>
+<p>Pamiętaj, aby zastąpić <code>nazwa_uzytkownika</code>, <code>moj_obraz</code> i <code>moj_znacznik</code> odpowiednimi nazwami.
+
+<h3>3. Oznacz swój obraz:</h3>
+<p>Użyj polecenia <code>docker tag</code>, aby przypisać odpowiednią nazwę i znacznik Twojemu obrazowi:</p>
+<pre><code>docker tag nazwa_uzytkownika/moj_obraz:moj_znacznik nazwa_uzytkownika/moj_obraz:latest</code></pre>
+<p>Oznaczanie jako <code>latest</code> jest opcjonalne i używane, gdy chcesz wskazać najnowszą wersję.
+<h3>4. Wysyłanie obrazu do Docker Hub:</h3>
+<p>Użyj polecenia <code>docker push</code>, aby przesłać swój obraz do Docker Hub:</p>
+<pre><code>docker push nazwa_uzytkownika/moj_obraz:moj_znacznik</code></pre>
+<p>To polecenie przesyła obraz do Twojego repozytorium na Docker Hub.
+<h3>5. Sprawdzenie na Docker Hub:</h3>
+<p>Zaloguj się na Docker Hub.</p>
+<p>Znajdź swoje repozytorium i sprawdź, czy obraz pojawił się w rejestrze.
+<h3>6. Udostępnianie publicznie lub prywatnie:</h3>
+<p>Jeśli chcesz, aby Twój obraz był publicznie dostępny, nie musisz podejmować dodatkowych działań.</p>
+<p>Jeśli chcesz, aby był prywatny, zaloguj się na stronie Docker Hub, przejdź do ustawień repozytorium i zmień widoczność.
+Teraz twój obraz jest dostępny na Docker Hub, a inni mogą go pobrać i używać. Pamiętaj o bezpieczeństwie i ogranicz dostęp do prywatnych obrazów przy użyciu odpowiednich ustawień widoczności i kontroli dostępu na Docker Hub. Biorąc pod uwagę powyższe kroki, umieszczanie własnych obrazów w rejestrach Docker Hub staje się prostym zadaniem, a Docker Hub stanowi popularne miejsce do przechowywania i udostępniania obrazów Dockerowych.
+
+
+
+
+
