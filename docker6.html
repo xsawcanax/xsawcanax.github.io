@@ -18,7 +18,7 @@
             Kontenery są projektowane do krótkiego cyklu życia, co oznacza, że są łatwo tworzone, uruchamiane, zatrzymywane i usuwane. To podejście ma na celu zapewnienie łatwości zarządzania infrastrukturą. Jednakże, trwałość danych często wymagałaby innego podejścia, takiego jak korzystanie z zewnętrznych zasobów (np. woluminów) czy systemów zarządzania danymi.
         </li>
         <li><strong>Domyślne zachowanie systemu plików kontenera:</strong><br>
-            Systemy plików w kontenerach są często oparte na warstwach i są w pełni zarządzane przez silnik kontenerowy. Oznacza to, że wszelkie zmiany w plikach zapisywane są w warstwach tymczasowych i mogą zostać utracone po zatrzymaniu kontenera.
+            Systemy plików w kontenerach składają się z warstw obrazu oraz warstwy zapisywalnej. Modyfikowanie plików w kontenerze nie wpływa na obraz, a dane w warstwie zapisywalnej są ulotne. Oznacza to, że wszelkie zmiany dokonane w trakcie działania kontenera są przechowywane w warstwie tymczasowej, która może zostać utracona po zatrzymaniu kontenera.
         </li>
         <li><strong>Woluminy:</strong><br>
             Chociaż dane w warstwach kontenera mogą być nietrwałe, można korzystać z mechanizmu woluminów, aby przechowywać dane poza kontenerem. Woluminy są montowane do kontenera i przechowują dane poza warstwami kontenera, co pozwala na trwałe przechowywanie informacji nawet po zatrzymaniu lub usunięciu kontenera.
