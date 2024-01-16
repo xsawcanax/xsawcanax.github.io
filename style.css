@@ -36,14 +36,12 @@ table {
     margin-top: 20px;
 }
 
-th,
-td {
+th, td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
     font-family: Arial, sans-serif;
 }
-
 th {
     background-color: #007BFF;
     color: white;
