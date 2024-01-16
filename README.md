@@ -56,6 +56,9 @@
             <tr>
                 <td><a href="docker.html">Docker</a></td>
                 <td>Platforma do konteneryzacji aplikacji. <a href="https://docs.docker.com/">Dokumentacja</a></td>
+                
+                <td><a href="cassandra.html">Cassandra</a></td>
+                <td>Rozproszony system zarządzania bazą danych. <a href="https://cassandra.apache.org/doc/latest/">Dokumentacja</a></td>
             </tr>
             <!-- Dodaj więcej wierszy dla innych podstron -->
         </tbody>
