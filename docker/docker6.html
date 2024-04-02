@@ -27,5 +27,14 @@
     </ol>
 
     <p>Aby przechowywać dane trwale w kontenerach, często stosuje się techniki takie jak korzystanie z woluminów, zarządzanie danymi na poziomie hosta lub korzystanie z zewnętrznych rozwiązań do przechowywania danych, które są niezależne od cyklu życia kontenera.</p>
+    
+    <h1>Uruchomianie kontenerów z woluminami Dockera</h1>
+    <p>Aby uruchomić kontener z woluminami w Dockerze, możesz użyć flagi <code>-v</code> lub <code>--volume</code> w poleceniu <code>docker run</code>, aby zmapować lokalny katalog na katalog wewnątrz kontenera. Oto przykładowe polecenie:</p>
+    <pre><code>docker run -v /ścieżka/do/lokalnego/katalogu:/ścieżka/do/katalogu/w/kontenerze nazwa_obrazu</code></pre>
+    <p>Przykładowo, aby uruchomić kontener na podstawie obrazu o nazwie <code>moj_obraz</code>, który będzie miał dostęp do katalogu <code>/app</code> wewnątrz kontenera i zmapować lokalny katalog <code>/home/user/moja_aplikacja</code> do tego katalogu, użyj poniższego polecenia:</p>
+    <pre><code>docker run -v /home/user/moja_aplikacja:/app moj_obraz</code></pre>
+    <p>Możesz również użyć wielu flag <code>-v</code>, aby zmapować wiele woluminów. Na przykład:</p>
+    <pre><code>docker run -v /ścieżka/do/lokalnego/katalogu1:/ścieżka/do/katalogu1/w/kontenerze -v /ścieżka/do/lokalnego/katalogu2:/ścieżka/do/katalogu2/w/kontenerze nazwa_obrazu</code></pre>
+    <p>W ten sposób możesz zapewnić dostęp do danych pomiędzy lokalnym systemem plików a kontenerem Dockerowym.</p>
 </body>
 </html>
