@@ -49,5 +49,11 @@
         <pre><code>VOLUME /ścieżka/do/katalogu/w/kontenerze</code></pre>
     </div>
     <p>Powyższa instrukcja VOLUME w pliku DOCKERFILE definiuje wolumin, który będzie dostępny dla kontenera pod podaną ścieżką. Możesz dodać tę instrukcję do swojego pliku DOCKERFILE, aby zdefiniować wolumin dla Twojego kontenera Dockerowego.</p>
+    <h2>Współdzielenie woluminów z obrazu</h2>
+    <p>Możesz również współdzielić woluminy między kontenerami, korzystając z flagi <code>--volumes-from</code> w poleceniu <code>docker run</code>. Ta opcja pozwala kontenerowi na dostęp do woluminów z innego kontenera. Na przykład:</p>
+    <div class="code-container">
+        <pre><code>docker run --volumes-from=container_name nazwa_obrazu</code></pre>
+    </div>
+    <p>To polecenie uruchomi nowy kontener i umożliwi mu dostęp do woluminów z kontenera o nazwie <code>container_name</code>.</p>
 </body>
 </html>
