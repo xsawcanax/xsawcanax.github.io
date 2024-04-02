@@ -42,5 +42,12 @@
         <pre><code>docker run -v /ścieżka/do/lokalnego/katalogu1:/ścieżka/do/katalogu1/w/kontenerze -v /ścieżka/do/lokalnego/katalogu2:/ścieżka/do/katalogu2/w/kontenerze nazwa_obrazu</code></pre>
     </div>
     <p>W ten sposób możesz zapewnić dostęp do danych pomiędzy lokalnym systemem plików a kontenerem Dockerowym.</p>
+  <h2>Dodawanie woluminów poprzez instrukcje VOLUME w pliku DOCKERFILE</h2>
+    <p>Kolejnym sposobem dodawania woluminów w Dockerze jest umieszczenie instrukcji <code>VOLUME</code> w pliku DOCKERFILE. Woluminy zdefiniowane w ten sposób mogą być montowane podczas uruchamiania kontenera i są często używane do przechowywania danych, które powinny być trwałe, nawet po zatrzymaniu kontenera.</p>
+    <p>Oto przykład definicji woluminu w pliku DOCKERFILE:</p>
+    <div class="code-container">
+        <pre><code>VOLUME /ścieżka/do/katalogu/w/kontenerze</code></pre>
+    </div>
+    <p>Powyższa instrukcja VOLUME w pliku DOCKERFILE definiuje wolumin, który będzie dostępny dla kontenera pod podaną ścieżką. Możesz dodać tę instrukcję do swojego pliku DOCKERFILE, aby zdefiniować wolumin dla Twojego kontenera Dockerowego.</p>
 </body>
 </html>
