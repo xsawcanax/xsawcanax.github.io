@@ -1,15 +1,11 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: Arial, sans-serif;
     max-width: 800px;
     margin: auto;
     padding: 20px;
 }
 
-h2 {
-    color: #2196F3;
-}
-
-h3 {
+h1 {
     color: #2196F3;
 }
 
@@ -17,41 +13,20 @@ p {
     line-height: 1.6;
 }
 
-ul {
-    list-style-type: square;
+ol {
+    list-style-type: decimal;
 }
 
-a {
-    color: #2196F3;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    border: 1px solid #ddd;
+pre {
+    background-color: #f4f4f4;
     padding: 10px;
-    text-align: left;
-    font-family: 'Roboto', sans-serif;
-}
-
-th {
-    background-color: #2196F3;
-    color: white;
+    border-radius: 5px;
+    overflow-x: auto;
 }
 
 code {
-    background-color: #f4f4f4;
-    padding: 2px 4px;
-    border-radius: 4px;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
 }
 .code-container {
     overflow-x: auto;
