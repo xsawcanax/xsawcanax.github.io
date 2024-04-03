@@ -27,6 +27,10 @@
                 <td><a href="cassandra/cassandra.html">Cassandra</a></td>
                 <td>Rozproszony system zarządzania bazą danych. <a href="https://cassandra.apache.org/doc/latest/">Dokumentacja</a></td>
             </tr>
+            <tr>    
+            <td><a href="sql/sql.html">SQL</a></td>
+            <td>Język służący do zarządzania relacyjnymi bazami danych, czyli do tworzenia, modyfikowania i pobierania z nich danych. <a href="https://pl.khanacademy.org/computing/computer-programming/sql-documentation">Dokumentacja</a></td>
+        </tr>
             <!-- Dodaj więcej wierszy dla innych podstron -->
         </tbody>
     </table>
