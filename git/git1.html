@@ -10,40 +10,51 @@
 
     <h1>Zanim zaczniesz</h1>
     
+    <h2>Jaka jest rola systemów kontroli wersji?</h2>
+
+    <p>Systemy kontroli wersji (VCS, Version Control Systems) odgrywają kluczową rolę w zarządzaniu kodem źródłowym i historią zmian w projektach informatycznych. Ich główne zadania obejmują:</p>
+
+    <ul>
+        <li><strong>Śledzenie zmian:</strong> Systemy kontroli wersji śledzą wszystkie zmiany wprowadzane do plików projektu, włączając w to dodawanie, usuwanie oraz modyfikację plików.</li>
+        <li><strong>Zarządzanie historią:</strong> VCS przechowują kompletną historię zmian w projekcie, co pozwala na śledzenie, kto i kiedy wprowadził określone zmiany oraz przywracanie wcześniejszych wersji plików w razie potrzeby.</li>
+        <li><strong>Współpraca zespołowa:</strong> Dzięki systemom kontroli wersji programiści mogą współpracować nad projektem, pracując niezależnie nad różnymi częściami kodu i łącząc zmiany w spójne wersje.</li>
+        <li><strong>Rozwiązywanie konfliktów:</strong> VCS pomagają w rozwiązywaniu konfliktów, które mogą wystąpić, gdy dwa lub więcej członków zespołu wprowadza zmiany w tym samym fragmencie kodu.</li>
+        <li><strong>Zarządzanie wersjami:</strong> Systemy kontroli wersji umożliwiają nadawanie opisów (commit messages) dla każdej zmiany, co ułatwia zrozumienie historii projektu.</li>
+    </ul>
+
     <h2>Czym jest Git?</h2>
 
     <p>Git to rozproszony system kontroli wersji, który umożliwia śledzenie zmian w kodzie źródłowym projektu. Pozwala programistom współpracować nad projektem, śledzić historię zmian, przywracać wcześniejsze wersje kodu oraz rozwiązywać konflikty w zmianach.</p>
 
-    <h2>Dlaczego warto używać Gita?</h2>
+    <h2>Dlaczego każdy programista powinien korzystać z systemów kontroli wersji, takich jak Git?</h2>
 
-    <p>Git jest popularnym narzędziem wśród programistów z wielu powodów:</p>
+    <p>Systemy kontroli wersji, w tym Git, są niezwykle ważne dla każdego programisty z kilku powodów:</p>
 
     <ul>
-        <li><strong>Łatwość użycia:</strong> Git oferuje prosty i intuicyjny interfejs, co sprawia, że nauka jego obsługi nie jest trudna.</li>
-        <li><strong>Rozproszona natura:</strong> Każdy klon repozytorium Git zawiera pełną historię projektu, co ułatwia pracę zespołową i umożliwia pracę offline.</li>
-        <li><strong>Bezpieczeństwo:</strong> Dzięki systemowi rozproszeniowemu i możliwości tworzenia kopii zapasowych, Git zapewnia bezpieczeństwo danych projektu.</li>
-        <li><strong>Elastyczność:</strong> Git obsługuje wiele różnych workflow'ów, co pozwala dostosować go do potrzeb projektu.</li>
+        <li><strong>Zachowanie historii zmian:</strong> Dzięki systemom kontroli wersji każda zmiana wprowadzona do kodu jest rejestrowana, co umożliwia łatwe śledzenie historii projektu.</li>
+        <li><strong>Łatwa współpraca:</strong> VCS ułatwiają pracę zespołową nad projektem, umożliwiając programistom równoczesne modyfikowanie plików i łatwe łączenie zmian.</li>
+        <li><strong>Bezpieczeństwo danych:</strong> Systemy kontroli wersji zapewniają bezpieczeństwo danych poprzez tworzenie kopii zapasowych oraz śledzenie historii zmian, co chroni przed utratą danych w razie awarii.</li>
+        <li><strong>Zarządzanie wersjami:</strong> Git umożliwia łatwe zarządzanie wersjami kodu, co pozwala na eksperymentowanie z różnymi rozwiązaniami i przywracanie wcześniejszych wersji w razie potrzeby.</li>
+        <li><strong>Łatwość wdrażania zmian:</strong> Dzięki systemom kontroli wersji wdrażanie zmian w projekcie staje się bardziej przejrzyste i bezpieczne, co przyspiesza proces rozwoju oprogramowania.</li>
     </ul>
 
-    <h2>Jak zacząć korzystać z Gita?</h2>
-    
-    <p>Aby rozpocząć pracę z Gitem, należy zainstalować go na swoim komputerze i skonfigurować podstawowe ustawienia, takie jak nazwa użytkownika i adres e-mail. Następnie można utworzyć nowe repozytorium lub sklonować istniejące.</p>
-    
-    <ol>
-        <li><strong>Instalacja Gita:</strong> Aby zainstalować Gita na swoim komputerze, należy przejść na stronę <a href="https://git-scm.com/downloads" target="_blank">git-scm.com</a> i postępować zgodnie z instrukcjami instalacji dla swojego systemu operacyjnego.</li>
-        <li><strong>Konfiguracja Gita:</strong> Po zainstalowaniu Gita, należy skonfigurować podstawowe ustawienia, takie jak nazwa użytkownika i adres e-mail, za pomocą poleceń:
-            <pre><code>git config --global user.name "Twoje Imię"</code></pre>
-            <pre><code>git config --global user.email "twoj@email.com"</code></pre>
-        </li>
-        <li><strong>Utworzenie nowego repozytorium:</strong> Aby utworzyć nowe repozytorium Git, należy przejść do katalogu projektu i wykonać polecenie:
-            <pre><code>git init</code></pre>
-        </li>
-        <li><strong>Klonowanie istniejącego repozytorium:</strong> Aby sklonować istniejące repozytorium Git, należy wykonać polecenie:
-            <pre><code>git clone url_repozytorium</code></pre>
-        </li>
-    </ol>
+    <h2>Rozgałęzianie kodu (Branching) w systemach kontroli wersji</h2>
 
-    <p><a href="git.html">Przejdź do Strony Git</a></p>
+    <p>Rozgałęzianie kodu (branching) jest kluczową funkcją w systemach kontroli wersji, która umożliwia tworzenie alternatywnych linii rozwoju projektu. W Git każdy branch reprezentuje niezależną gałąź rozwoju kodu, co pozwala na jednoczesne prowadzenie różnych linii prac, np. rozwój nowych funkcji, naprawianie błędów czy stabilizację kodu.</p>
+    
+    <p>Rozgałęzianie kodu umożliwia programistom pracę nad różnymi funkcjonalnościami lub poprawkami równocześnie, bez ryzyka wprowadzania zmian bezpośrednio do głównej linii kodu (brancha głównego lub master). Po zakończeniu pracy na danym branchu zmiany mogą być scalane z główną gałęzią, co pozwala na integrowanie nowych funkcji lub poprawek z główną linią kodu.</p>
+
+    <h2>Przechowywanie kodu w chmurze</h2>
+
+    <p>Przechowywanie kodu w chmurze to praktyka polegająca na umieszczaniu kodu źródłowego projektu na zdalnych serwerach internetowych. Dzięki temu programiści mogą mieć dostęp do kodu z dowolnego miejsca i urządzenia, co umożliwia łatwą współpracę i zwiększa dostępność projektu.</p>
+
+    <h2>Możliwość pracy offline</h2>
+
+    <p>Współczesne narzędzia kontroli wersji, w tym Git, umożliwiają również pracę w trybie offline. Programiści mogą pobierać repozytoria na swoje urządzenia i wykonywać operacje takie jak commitowanie zmian czy tworzenie nowych branchy nawet wtedy, gdy nie mają dostępu do Internetu. Kiedy tylko połączenie z Internetem zostanie przywrócone, mogą zsynchronizować swoje lokalne repozytoria z repozytoriami zdalnymi, aby udostępnić swoje zmiany lub pobrać zmiany innych członków zespołu.</p>
+
+    <h2>Znaczenie społeczności</h2>
+
+    <p>Społeczność programistyczna to istotny element ekosystemu technologicznego. Skupia ona programistów o różnych umiejętnościach i doświadczeniu, którzy dzielą się wiedzą, pomagają sobie nawzajem oraz tworzą i rozwijają otwarte źródła oprogramowania. Dzięki społeczności programistycznej programiści mogą rozwijać się zawodowo, zgłębiać nowe technologie, rozwiązywać problemy oraz współpracować nad projektami o różnorodnej skali i złożoności.</p>
 
 </body>
 </html>
