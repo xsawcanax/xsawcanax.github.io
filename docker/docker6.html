@@ -55,7 +55,7 @@
         <pre><code>docker run --volumes-from=container_name nazwa_obrazu</code></pre>
     </div>
     <p>To polecenie uruchomi nowy kontener i umożliwi mu dostęp do woluminów z kontenera o nazwie <code>container_name</code>.</p>
-    <h2>Uruchamianie kontenerów z dowiązaniami systemu plików</h2>
+    <h1>Uruchamianie kontenerów z dowiązaniami systemu plików</h1>
     <p>Aby uruchomić kontener z dowiązaniami systemu plików w Dockerze, można wykorzystać flagę <code>--mount</code> lub <code>-v</code> w poleceniu <code>docker run</code>. Za pomocą tej flagi można mapować lokalne katalogi lub woluminy na katalogi wewnątrz kontenera. Oto przykładowe polecenie:</p>
     <div class="code-container">
         <pre><code>docker run --mount type=bind,source=/ścieżka/do/lokalnego/katalogu,target=/ścieżka/w/kontenerze nazwa_obrazu</code></pre>
