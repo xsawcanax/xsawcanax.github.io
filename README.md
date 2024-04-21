@@ -31,6 +31,9 @@
                 <td><a href="sql/sql.html">SQL</a></td>
                 <td>Język służący do zarządzania relacyjnymi bazami danych, czyli do tworzenia, modyfikowania i pobierania z nich danych. <a href="https://pl.khanacademy.org/computing/computer-programming/sql-documentation">Dokumentacja</a></td>
             </tr>
+            <tr>
+                <td><a href="git/git.html">Git</a></td>
+                <td>Rozproszony system kontroli wersji. <a href="https://git-scm.com/doc">Dokumentacja</a></td>
             <tr>    
                 <td><a href="python/python.html">Python</a></td>
                 <td>Język programowania ogólnego przeznaczenia, popularny ze względu na swoją prostotę i czytelność. <a href="https://docs.python.org/3/">Dokumentacja</a></td>
