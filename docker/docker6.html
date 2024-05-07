@@ -29,7 +29,7 @@
     <p>Aby przechowywać dane trwale w kontenerach, często stosuje się techniki takie jak korzystanie z woluminów, zarządzanie danymi na poziomie hosta lub korzystanie z zewnętrznych rozwiązań do przechowywania danych, które są niezależne od cyklu życia kontenera.</p>
     
     <h1>Uruchomianie kontenerów z woluminami Dockera</h1>
-    <p>Aby uruchomić kontener z woluminami w Dockerze, możesz użyć flagi <code>-v</code> lub <code>--volume</code> w poleceniu <code>docker run</code>, aby zmapować lokalny katalog na katalog wewnątrz kontenera. Oto przykładowe polecenie:</p>
+    <p>Aby uruchomić kontener z woluminami w Dockerze, użyj flagi <code>-v</code> lub <code>--volume</code> w poleceniu <code>docker run</code>, aby zmapować lokalny katalog na katalog wewnątrz kontenera.</p>
     <div class="code-container">
         <pre><code>docker run -v /ścieżka/do/lokalnego/katalogu1:/ścieżka/do/katalogu1/w/kontenerze -v /ścieżka/do/lokalnego/katalogu2:/ścieżka/do/katalogu2/w/kontenerze nazwa_obrazu</code></pre>
     </div>
@@ -37,26 +37,28 @@
     <div class="code-container">
         <pre><code>docker run -v /home/user/moja_aplikacja:/app moj_obraz</code></pre>
     </div>
-    <p>Możesz również użyć wielu flag <code>-v</code>, aby zmapować wiele woluminów. Na przykład:</p>
+    <p>Możesz również użyć wielu flag <code>-v</code>, aby zmapować wiele woluminów.</p>
     <div class="code-container">
         <pre><code>docker run -v /ścieżka/do/lokalnego/katalogu1:/ścieżka/do/katalogu1/w/kontenerze -v /ścieżka/do/lokalnego/katalogu2:/ścieżka/do/katalogu2/w/kontenerze nazwa_obrazu</code></pre>
     </div>
     <p>W ten sposób możesz zapewnić dostęp do danych pomiędzy lokalnym systemem plików a kontenerem Dockerowym.</p>
-  <h2>Dodawanie woluminów poprzez instrukcje VOLUME w pliku DOCKERFILE</h2>
+  
+    <h2>Dodawanie woluminów poprzez instrukcje VOLUME w pliku DOCKERFILE</h2>
     <p>Kolejnym sposobem dodawania woluminów w Dockerze jest umieszczenie instrukcji <code>VOLUME</code> w pliku DOCKERFILE. Woluminy zdefiniowane w ten sposób mogą być montowane podczas uruchamiania kontenera i są często używane do przechowywania danych, które powinny być trwałe, nawet po zatrzymaniu kontenera.</p>
-    <p>Oto przykład definicji woluminu w pliku DOCKERFILE:</p>
     <div class="code-container">
         <pre><code>VOLUME /ścieżka/do/katalogu/w/kontenerze</code></pre>
     </div>
     <p>Powyższa instrukcja VOLUME w pliku DOCKERFILE definiuje wolumin, który będzie dostępny dla kontenera pod podaną ścieżką. Możesz dodać tę instrukcję do swojego pliku DOCKERFILE, aby zdefiniować wolumin dla Twojego kontenera Dockerowego.</p>
+
     <h2>Współdzielenie woluminów z obrazu</h2>
-    <p>Możesz również współdzielić woluminy między kontenerami, korzystając z flagi <code>--volumes-from</code> w poleceniu <code>docker run</code>. Ta opcja pozwala kontenerowi na dostęp do woluminów z innego kontenera. Na przykład:</p>
+    <p>Możesz również współdzielić woluminy między kontenerami, korzystając z flagi <code>--volumes-from</code> w poleceniu <code>docker run</code>. Ta opcja pozwala kontenerowi na dostęp do woluminów z innego kontenera.</p>
     <div class="code-container">
         <pre><code>docker run --volumes-from=container_name nazwa_obrazu</code></pre>
     </div>
     <p>To polecenie uruchomi nowy kontener i umożliwi mu dostęp do woluminów z kontenera o nazwie <code>container_name</code>.</p>
-    <h1>Uruchamianie kontenerów z dowiązaniami systemu plików</h1>
-    <p>Aby uruchomić kontener z dowiązaniami systemu plików w Dockerze, można wykorzystać flagę <code>--mount</code> lub <code>-v</code> w poleceniu <code>docker run</code>. Za pomocą tej flagi można mapować lokalne katalogi lub woluminy na katalogi wewnątrz kontenera. Oto przykładowe polecenie:</p>
+
+    <h1>Ograniczenia dowiązań</h1>
+    <p>Aby uruchomić kontener z dowiązaniami systemu plików w Dockerze, można wykorzystać flagę <code>--mount</code> lub <code>-v</code> w poleceniu <code>docker run</code>.</p>
     <div class="code-container">
         <pre><code>docker run --mount type=bind,source=/ścieżka/do/lokalnego/katalogu,target=/ścieżka/w/kontenerze nazwa_obrazu</code></pre>
     </div>
@@ -64,7 +66,7 @@
     <div class="code-container">
         <pre><code>docker run --mount type=bind,source=/home/user/moja_aplikacja,target=/app moj_obraz</code></pre>
     </div>
-    <p>Można również użyć flagi <code>-v</code>, co jest skrótem dla <code>--mount type=bind</code>. Na przykład:</p>
+    <p>Można również użyć flagi <code>-v</code>, co jest skrótem dla <code>--mount type=bind</code>.</p>
     <div class="code-container">
         <pre><code>docker run -v /ścieżka/do/lokalnego/katalogu:/ścieżka/w/kontenerze nazwa_obrazu</code></pre>
     </div>
