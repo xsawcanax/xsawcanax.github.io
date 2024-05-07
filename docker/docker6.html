@@ -58,15 +58,16 @@
     </div>
     <p>W ten sposób możesz zapewnić dostęp do danych pomiędzy lokalnym systemem plików a kontenerem Dockerowym.</p>
 
-    <h1>Ograniczenia dowiązań</h1>
-    <p>Ograniczenia dowiązań mogą prowadzić do niektórych problemów w kontenerach Dockerowych. Mimo że są one przydatne, mają swoje ograniczenia:</p>
+   <h1>Ograniczenia dowiązań</h1>
+    <p>Ograniczenia dowiązań mogą prowadzić do pewnych problemów w kontenerach Dockerowych. Mimo że są one przydatne, mają swoje ograniczenia:</p>
     <ul>
-        <li>Nie można montować pojedynczego pliku, tylko katalogi.</li>
+        <li>Nie można montować pojedynczego pliku, tylko katalogi (dotyczy systemu Windows).</li>
         <li>Nie można przekazywać dowiązań systemu plików przy kopiowaniu lub eksportowaniu kontenera.</li>
-        <li>Ograniczenia systemu plików hosta mogą być odzwierciedlone w kontenerze, co może prowadzić do problemów z dostępem do plików.</li>
         <li>Gdy katalog docelowy dowiązania już istnieje, katalog źródłowy w całości zastępuje istniejący katalog docelowy - innymi słowy, pierwotne pliki pochodzące z obrazu przestają być dostępne.</li>
     </ul>
     <p>Przy projektowaniu systemów z użyciem dowiązań systemu plików, należy uwzględnić te ograniczenia i zastanowić się, czy spełniają one wymagania projektu.</p>
+    <p>W kontenerach z systemem Linux możliwe jest dowiązywanie pojedynczych plików. Jeżeli katalog docelowy będzie istnieć, to domontowany plik zostanie scalony z zawartością katalogu. Natomiast w kontenerach z systemem Windows nie można dowiązywać pojedynczych plików. Pojawi się błąd "invalid mount config". Ponadto, katalog rozproszonych systemów plików może zostać dowiązany, ale w rzeczywistości jest przechowywany w usłudze sieciowej. Nie obsługuje ona twardych dowiązań do plików, więc próba użycia tego katalogu przez bazę danych Postgres może doprowadzić do awarii.</p>
+
 
 </body>
 </html>
