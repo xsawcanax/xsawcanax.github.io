@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -5,7 +6,6 @@
     <title>Nauka</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap">
-
 </head>
 <body>
 
@@ -37,6 +37,10 @@
             <tr>    
                 <td><a href="python/python.html">Python</a></td>
                 <td>Język programowania ogólnego przeznaczenia, popularny ze względu na swoją prostotę i czytelność. <a href="https://docs.python.org/3/">Dokumentacja</a></td>
+            </tr>
+            <tr>    
+                <td><a href="dataengineer/dataengineer.html">Google Data Engineer</a></td>
+                <td>Specjalista odpowiedzialny za przetwarzanie danych na platformie Google Cloud Platform. <a href="https://cloud.google.com/certification/guides/data-engineer">Przewodnik po certyfikacji</a></td>
             </tr>
 
             <!-- Dodaj więcej wierszy dla innych podstron -->
