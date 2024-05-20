@@ -58,7 +58,7 @@
     </div>
     <p>W ten sposób możesz zapewnić dostęp do danych pomiędzy lokalnym systemem plików a kontenerem Dockerowym.</p>
 
-   <h1>Ograniczenia dowiązań</h1>
+    <h1>Ograniczenia dowiązań</h1>
     <p>Ograniczenia dowiązań mogą prowadzić do pewnych problemów w kontenerach Dockerowych. Mimo że są one przydatne, mają swoje ograniczenia:</p>
     <ul>
         <li>Nie można montować pojedynczego pliku, tylko katalogi (dotyczy systemu Windows).W kontenerach z systemem Linux możliwe jest dowiązywanie pojedynczych plików. Jeżeli katalog docelowy będzie istnieć, to domontowany plik zostanie scalony z zawartością katalogu. Natomiast w kontenerach z systemem Windows nie można dowiązywać pojedynczych plików. Pojawi się błąd "invalid mount config".</li>
@@ -67,8 +67,23 @@
         <li>Katalog rozproszonych systemów plików może zostać dowiązany, ale w rzeczywistości jest przechowywany w usłudze sieciowej. Nie obsługuje ona twardych dowiązań do plików, więc próba użycia tego katalogu przez aplikację czytającą może doprowadzić do awarii.</li>
     </ul>
     <p>Przy projektowaniu systemów z użyciem dowiązań systemu plików, należy uwzględnić te ograniczenia i zastanowić się, czy spełniają one wymagania projektu.</p>
+
+    <h1>Konstrukcja systemu plików kontenera</h1>
+    <p>Konstrukcja systemu plików kontenera jest złożona i składa się z kilku kluczowych elementów, które zapewniają jego funkcjonalność i elastyczność:</p>
     
-
-
+    <h2>Warstwa zapisywalna</h2>
+    <p>Warstwa zapisywalna jest tworzona przy uruchomieniu kontenera i jest miejscem, gdzie wszystkie zmiany w systemie plików są zapisywane. Jest to tymczasowa warstwa, która przestaje istnieć po zatrzymaniu i usunięciu kontenera.</p>
+    
+    <h2>Dowiązania lokalne</h2>
+    <p>Dowiązania lokalne (bind mounts) pozwalają na mapowanie katalogów lub plików z hosta do kontenera. Umożliwiają one bezpośredni dostęp do danych hosta z kontenera, co jest przydatne w wielu scenariuszach, takich jak rozwój oprogramowania i debugowanie.</p>
+    
+    <h2>Dowiązania rozproszone</h2>
+    <p>Dowiązania rozproszone (distributed file system mounts) umożliwiają dostęp do danych przechowywanych w zewnętrznych systemach plików rozproszonych. Są one użyteczne w dużych, skalowalnych środowiskach, gdzie dostęp do wspólnych zasobów plikowych jest kluczowy.</p>
+    
+    <h2>Montowane woluminy</h2>
+    <p>Montowane woluminy (volumes) są specjalnym mechanizmem Dockera, który pozwala na trwałe przechowywanie danych poza cyklem życia kontenera. Woluminy są przechowywane na hosta i mogą być łatwo udostępniane między różnymi kontenerami.</p>
+    
+    <h2>Warstwy obrazu</h2>
+    <p>Warstwy obrazu są bazowymi warstwami niezmiennymi, z których zbudowany jest kontener. Każdy obraz Dockera składa się z serii warstw, które są używane wspólnie przez różne kontenery, co pozwala na efektywne zarządzanie zasobami i oszczędność miejsca.</p>
 </body>
 </html>
