@@ -43,8 +43,3 @@
             </tr>
 
             <!-- Dodaj więcej wierszy dla innych podstron -->
-        </tbody>
-    </table>
-
-</body>
-</html>
