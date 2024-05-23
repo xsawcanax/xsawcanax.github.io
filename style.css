@@ -35,7 +35,7 @@ code {
 table {
   width: 100%; /* Szerokość tabeli */
   margin: 20px auto; /* Marginesy wokół tabeli */
-  border-collapse: collapse; /* Usunięcie domyślnych ramek między komórkami */
+  border: 1px solid #ccc; /* Ustaw grubość i kolor ramki */
 }
 
 th, td {
