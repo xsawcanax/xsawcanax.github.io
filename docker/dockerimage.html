@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notatki o Dockerze</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <h2>Komenda - docker image</h2>
+  <table>
+      <thead>
+        <tr>
+          <th>Komenda</th>
+          <th>Opis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>docker image ls</td>
+          <td>Wyświetla listę dostępnych obrazów na systemie.</td>
+        </tr>
+        <tr>
+          <td>docker image pull {nazwa_obrazu}:{tag}</td>
+          <td>Pobiera obraz z rejestru Docker Hub.</td>
+        </tr>
+        <tr>
+          <td>docker image push {nazwa_obrazu}:{tag}</td>
+          <td>Wgrywa obraz do rejestru Docker Hub.</td>
+        </tr>
+        <tr>
+          <td>docker image build -t {nazwa_obrazu}:{tag} .</td>
+          <td>Buduje obraz z bieżącego katalogu.</td>
+        </tr>
+        <tr>
+          <td>docker image rm {nazwa_obrazu}</td>
+          <td>Usuwa obraz o podanej nazwie.</td>
+        </tr>
+        <tr>
+          <td>docker image inspect {nazwa_obrazu}</td>
+          <td>Wyświetla szczegółowe informacje o obrazie.
+        </tr>
+     </tbody>
+  </table>
+</body>
+</html>
