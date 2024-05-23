@@ -7,11 +7,12 @@
 </head>
 <body>
 
-    <h2>Tu znajdziesz notatki dotyczące technologii Docker.</h2>
+    <h2>Notatki dotyczące technologii Docker.</h2>
 
     <h3>Co to jest Docker?</h3>
-    <p>Docker to narzędzie do konteneryzacji aplikacji. Pozwala na łatwe i szybkie uruchamianie aplikacji w izolowanych środowiskach.</p>
+    <p>Docker to narzędzie dla do konteneryzacji aplikacji. Dzięki niemu można łatwo i szybko uruchamiać aplikacje w izolowanych środowiskach, co pozwala uniknąć problemów zależności między aplikacjami.</p>
 
+    <h3>Rozdziały</h3>
     <ul>
         <li><a href="docker1.html">Zanim zaczniesz</a></li>
         <li><a href="docker2.html">Uruchomienie aplikacji w kontenerze, nawiązywanie połączenia z kontenerem</a></li>
@@ -24,63 +25,63 @@
     <h3>Podstawowe komendy Dockera</h3>
     
     <table>
-        <thead>
-            <tr>
-                <th>Komenda</th>
-                <th>Opis</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>docker container run {nazwa_obrazu}</td>
-                <td>Uruchamia nowy kontener z określonego obrazu.</td>
-            </tr>
-            <tr>
-                <td>docker ps</td>
-                <td>Wyświetla listę uruchomionych kontenerów.</td>
-            </tr>
-            <tr>
-                <td>docker container run -d {nazwa_obrazu}</td>
-                <td>Uruchamia kontener w tle (tryb detached).</td>
-            </tr>
-            <tr>
-                <td>docker system df</td>
-                <td>Wyświetla informacje o zużyciu miejsca na dysku przez Docker na systemie.</td>
-            </tr>
-            <tr>
-                <td>docker image ls</td>
-                <td>Wyświetla listę dostępnych obrazów na systemie.</td>
-            </tr>
-            <tr>
-                <td>docker build -t {nazwa_obrazu} {ścieżka_do_katalogu_z_Dockerfile}</td>
-                <td>Buduje obraz Docker na podstawie pliku Dockerfile.</td>
-            </tr>
-            <tr>
-                <td>docker container rm {id_kontenera}</td>
-                <td>Usuwa kontener o podanym ID.</td>
-            </tr>
-            <tr>
-                <td>docker image rm {nazwa_obrazu}</td>
-                <td>Usuwa obraz o podanej nazwie.</td>
-            </tr>
-            <tr>
-                <td>docker container inspect {id_kontenera}</td>
-                <td>Wyświetla szczegółowe informacje o kontenerze o podanym ID.</td>
-            </tr>
-            <tr>
-                <td>docker exec -it {id_kontenera} /bin/bash</td>
-                <td>Loguje się do działającego kontenera.</td>
-            </tr>
-            <tr>
-                <td>docker start {id_kontenera}</td>
-                <td>Wznowienie działania zatrzymanego kontenera o określonym identyfikatorze.</td>
-            </tr>
-            <tr>
-                <td>docker stop {id_kontenera}</td>
-                <td>Zatrzymuje działanie kontenera o określonym identyfikatorze.</td>
-            </tr>
-        </tbody>
-    </table>
+  <thead>
+    <tr>
+      <th>Komenda</th>
+      <th>Opis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>docker container run {nazwa_obrazu}</td>
+      <td>Uruchamia nowy kontener z określonego obrazu.</td>
+    </tr>
+    <tr>
+      <td>docker ps</td>
+      <td>Wyświetla listę uruchomionych kontenerów.</td>
+    </tr>
+    <tr>
+      <td>docker container run -d {nazwa_obrazu}</td>
+      <td>Uruchamia kontener w tle (tryb detached).</td>
+    </tr>
+    <tr>
+      <td>docker system df</td>
+      <td>Wyświetla informacje o zużyciu miejsca na dysku przez Docker na systemie.</td>
+    </tr>
+    <tr>
+      <td>docker image ls</td>
+      <td>Wyświetla listę dostępnych obrazów na systemie.</td>
+    </tr>
+    <tr>
+      <td>docker build -t {nazwa_obrazu} {ścieżka_do_katalogu_z_Dockerfile}</td>
+      <td>Buduje obraz Docker na podstawie pliku Dockerfile.</td>
+    </tr>
+    <tr>
+      <td>docker container rm {id_kontenera}</td>
+      <td>Usuwa kontener o podanym ID.</td>
+    </tr>
+    <tr>
+      <td>docker image rm {nazwa_obrazu}</td>
+      <td>Usuwa obraz o podanej nazwie.</td>
+    </tr>
+    <tr>
+      <td>docker container inspect {id_kontenera}</td>
+      <td>Wyświetla szczegółowe informacje o kontenerze o podanym ID.</td>
+    </tr>
+    <tr>
+      <td>docker exec -it {id_kontenera} /bin/bash</td>
+      <td>Loguje się do działającego kontenera.</td>
+    </tr>
+    <tr>
+      <td>docker start {id_kontenera}</td>
+      <td>Wznowienie działania zatrzymanego kontenera o określonym identyfikatorze.</td>
+    </tr>
+    <tr>
+      <td>docker stop {id_kontenera}</td>
+      <td>Zatrzymuje działanie kontenera o określonym identyfikatorze.</td>
+    </tr>
+  </tbody>
+</table>
 
     <h3>Przydatne zasoby</h3>
     <ul>
@@ -88,9 +89,6 @@
         <li><a href="https://hub.docker.com/">Docker Hub</a> - repozytorium obrazów Dockera</li>
         <li><a href="https://docs.docker.com/compose/">Docker Compose</a> - narzędzie do zarządzania wieloma kontenerami jednocześnie</li>
     </ul>
-
-    <h3>Podsumowanie</h3>
-    <p>Docker to bardzo przydatne narzędzie dla developerów i administratorów systemów. Dzięki niemu można łatwo i szybko uruchamiać aplikacje w izolowanych środowiskach, co pozwala uniknąć problemów zależności między aplikacjami.</p>
 
 </body>
 </html>
