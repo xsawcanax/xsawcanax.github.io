@@ -6,20 +6,23 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+<h3>Jak Docker wykonuje kontenery?</h3>
+    
+<p>Docker wykonuje kontenery przy użyciu technologii konteneryzacji, składających się z poniższych elementów.</p>
 <div>
     <h4>Namespace'y</h4>
     <ul>
       <li>
         <i class="fas fa-user-shield"></i>
-        <span>Izolacja - Zapewniają izolację zasobów i środowisk dla każdego kontenera, chroniąc je przed wzajemną ingerencją i złośliwym oprogramowaniem.</span>
+        <span>Zapewniają izolację zasobów i środowisk dla każdego kontenera, chroniąc je przed wzajemną ingerencją i złośliwym oprogramowaniem.</span>
       </li>
       <li>
         <i class="fas fa-sitemap"></i>
         <span>Rodzaje:</span>
         <ul>
-          <li>Przestrzeń procesów (Pid Namespace)</li>
-          <li>Przestrzeń sieciowa (Network Namespace)</li>
-          <li>Przestrzeń systemu plików (Mount Namespace)</li>
+          <li>Przestrzeń procesów (Pid Namespace) - Izoluje przestrzeń procesów, dzięki czemu procesy w jednym kontenerze są odizolowane od procesów w innych kontenerach i na hoscie.</li>
+          <li>Przestrzeń sieciowa (Network Namespace) - Zapewnia izolację przestrzeni sieciowej, co oznacza, że interfejsy sieciowe, tabele routingu itp. są odseparowane dla każdego kontenera.</li>
+          <li>Przestrzeń systemu plików (Mount Namespace) - Izoluje przestrzeń systemu plików, umożliwiając, aby kontenery miały własne systemy plików, niezależne od hosta i innych kontenerów.</li>
         </ul>
       </li>
     </ul>
@@ -30,11 +33,11 @@
     <ul>
       <li>
         <i class="fas fa-chart-bar"></i>
-        <span>Zarządzanie zasobami - Umożliwiają kontrolę i ograniczanie zasobów, takich jak CPU, pamięć RAM, dysk itp., dla każdego kontenera.</span>
+        <span> Umożliwiają kontrolę i ograniczanie zasobów, takich jak CPU, pamięć RAM, dysk itp., dla każdego kontenera.</span>
       </li>
       <li>
         <i class="fas fa-balance-scale"></i>
-        <span>Efektywność - Zapewniają optymalne wykorzystanie zasobów systemowych i zapobiegają przeciążeniu.</span>
+        <span>Zapewniają optymalne wykorzystanie zasobów systemowych i zapobiegają przeciążeniu.</span>
       </li>
     </ul>
   </div>
@@ -46,7 +49,7 @@
         <i class="fas fa-server"></i>
         <span>Docker Daemon</span>
         <ul>
-          <li>Proces tła zarządzający operacjami na kontenerach.</li>
+          <li>Proces zarządzający operacjami na kontenerach.</li>
           <li>Komunikuje się z Docker API i przyjmuje polecenia od użytkowników.</li>
         </ul>
       </li>
@@ -66,11 +69,11 @@
     <ul>
       <li>
         <i class="fas fa-puzzle-piece"></i>
-        <span>Szablon - Zawiera wszystkie elementy niezbędne do uruchomienia aplikacji, takie jak kod, zależności, konfiguracja i system operacyjny.</span>
+        <span>Zawiera wszystkie elementy niezbędne do uruchomienia aplikacji, takie jak kod, zależności, konfiguracja i system operacyjny.</span>
       </li>
       <li>
         <i class="fas fa-weight-hanging"></i>
-        <span>Lekkość i przenosność - Działa jako szablon, z którego można tworzyć wiele kontenerów, co zapewnia lekkość i przenosność aplikacji.</span>
+        <span>Działa jako szablon, z którego można tworzyć wiele kontenerów, co zapewnia lekkość i przenosność aplikacji.</span>
       </li>
     </ul>
   </div>
@@ -78,54 +81,18 @@
   <div>
     <h4>Proces uruchamiania kontenera</h4>
     <ol>
-      <li>Użytkownik wydaje polecenie Docker CLI, np. `docker run`, określając obraz i opcje.</li>
+      <li>Użytkownik wydaje polecenie Docker CLI, np. docker container run, określając obraz i opcje.</li>
+      <li>Docker Client komunikuje się z Docker Daemon, który przetwarza to polecenie.</li>
+      <li>Docker Daemon sprawdza, czy istnieje odpowiedni Docker Image. Jeśli nie, pobiera go z Docker Hub lub innych źródeł.</li>
+      <li>Daemon tworzy nowy kontener na podstawie obrazu, konfiguruje namespace'y i cgroups, alokuje zasoby, a następnie uruchamia procesy wewnątrz kontenera.</li>
+      <li>Procesy w kontenerze są izolowane od innych procesów na systemie, a kontener ma własne środowisko wykonawcze i system plików.</li>
     </ol>
   </div>
-    <h2>Zanim zaczniesz</h2>
-    
-    <h3>Czym jest kontener?</h3>
+  <p>Dzięki tym mechanizmom Docker osiąga izolację i przenośność, co pozwala na łatwe uruchamianie aplikacji w różnych środowiskach.</p>
+<h3>Instalacja Dockera</h3>
+<p>Aby zainstalować Dockera na swoim komputerze, należy przejść na stronę <a href="https://docs.docker.com/get-docker/" target="_blank">oficjalnej dokumentacji Dockera</a> i postępować zgodnie z instrukcjami.</p>
 
-    <p>Kontener to jednostka oprogramowania, która zawiera wszystko, co jest potrzebne do uruchomienia aplikacji, wraz z kodem, środowiskiem wykonawczym, bibliotekami, zależnościami i konfiguracją. Kontenery są izolowane od siebie i od systemu operacyjnego, co pozwala na przenośność aplikacji między różnymi środowiskami.</p>
-
-    <h3>Dlaczego kontenery podbijają świat?</h3>
-
-    <p>Kontenery zdobywają popularność ze względu na ich zdolność do izolacji aplikacji, przenośności pomiędzy środowiskami, szybkiego wdrażania, skalowania i efektywnego zarządzania cyklem życia aplikacji, co czyni je atrakcyjnym rozwiązaniem dla organizacji praktykujących DevOps i dążących do ciągłej dostawy oprogramowania.</p>
-
-    <h3>Jak Docker wykonuje kontenery?</h3>
-    
-    <p>Docker wykonuje kontenery przy użyciu technologii konteneryzacji, której kluczowe elementy to namespace'y i cgroups.</p>
-    
-    <ol>
-        <li><strong>Namespace'y:</strong>
-            <ul>
-                <li><strong>Pid Namespace:</strong> Izoluje przestrzeń procesów, dzięki czemu procesy w jednym kontenerze są odizolowane od procesów w innych kontenerach i na hoscie.</li>
-                <li><strong>Network Namespace:</strong> Zapewnia izolację przestrzeni sieciowej, co oznacza, że interfejsy sieciowe, tabele routingu itp. są odseparowane dla każdego kontenera.</li>
-                <li><strong>Mount Namespace:</strong> Izoluje przestrzeń systemu plików, umożliwiając, aby kontenery miały własne systemy plików, niezależne od hosta i innych kontenerów.</li>
-            </ul>
-        </li>
-        <li><strong>cgroups (Control Groups):</strong> Cgroups umożliwiają kontrolę i ograniczenia zasobów, takich jak CPU, pamięć RAM, dysk itp., które mogą być przypisane do kontenerów. Pozwala to na efektywne zarządzanie zasobami systemowymi.</li>
-        <li><strong>Docker Daemon:</strong> Docker Daemon to tło procesu, który zarządza operacjami na kontenerach. Przyjmuje polecenia od użytkownika, komunikuje się z Docker API i zarządza cyklem życia kontenerów.</li>
-        <li><strong>Docker Client:</strong> Docker Client to interfejs linii komend lub interfejs graficzny, który pozwala użytkownikowi komunikować się z Docker Daemon, wysyłając polecenia i odbierając wyniki.</li>
-        <li><strong>Docker Image:</strong> Docker Image to szablon, na podstawie którego tworzone są kontenery. Zawiera wszystko, co jest potrzebne do uruchomienia aplikacji, w tym kod, zależności, konfigurację itp.</li>
-    </ol>
-    
-    <p>Proces wykonania kontenera w skrócie wygląda tak:</p>
-    
-    <ol>
-        <li>Użytkownik wydaje polecenie Docker Clienta, na przykład <code>docker run</code>.</li>
-        <li>Docker Client komunikuje się z Docker Daemon, który przetwarza to polecenie.</li>
-        <li>Docker Daemon sprawdza, czy istnieje odpowiedni Docker Image. Jeśli nie, pobiera go z Docker Hub lub innych źródeł.</li>
-        <li>Daemon tworzy nowy kontener na podstawie obrazu, konfiguruje namespace'y i cgroups, alokuje zasoby, a następnie uruchamia procesy wewnątrz kontenera.</li>
-        <li>Procesy w kontenerze są izolowane od innych procesów na systemie, a kontener ma własne środowisko wykonawcze i system plików.</li>
-    </ol>
-    
-    <p>Dzięki tym mechanizmom Docker osiąga izolację i przenośność, co pozwala na łatwe uruchamianie aplikacji w różnych środowiskach.</p>
-    
-    <h3>Instalacja Dockera</h3>
-
-    <p>Aby zainstalować Dockera na swoim komputerze, należy przejść na stronę <a href="https://docs.docker.com/get-docker/" target="_blank">oficjalnej dokumentacji Dockera</a> i postępować zgodnie z instrukcjami.</p>
-
-    <p><a href="docker.html">Przejdź do Strony Docker</a></p>
+<p><a href="docker.html">Przejdź do Strony Docker</a></p>
 
 </body>
 </html>
