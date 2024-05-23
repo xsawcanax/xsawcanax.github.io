@@ -32,3 +32,19 @@ code {
     overflow-x: auto;
     white-space: pre-wrap;
 }
+table {
+  width: 100%; /* Szerokość tabeli */
+  margin: 20px auto; /* Marginesy wokół tabeli */
+  border-collapse: collapse; /* Usunięcie domyślnych ramek między komórkami */
+}
+
+th, td {
+  border: 1px solid #ccc; /* Ramka wokół komórek */
+  padding: 8px; /* Odstęp wewnątrz komórek */
+  text-align: left; /* Wyrównanie tekstu do lewej */
+}
+
+th {
+  background-color: #eee; /* Kolor tła nagłówków */
+  font-weight: bold; /* Pogrubiony tekst w nagłówkach */
+}
