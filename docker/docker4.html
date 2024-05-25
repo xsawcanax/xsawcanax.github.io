@@ -7,46 +7,47 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <h1>Po co serwer budowania skoro jest plik Dockerfile?</h1>
+    <h2>Pakowanie aplikacji w formie kodu źródłowego do obrazu Dockera</h2>
+    <h3>Po co serwer budowania skoro jest plik Dockerfile?</h3>
 
-    <p>Serwer budowania Docker (Docker Build Server) lub inaczej nazywany również usługą CI/CD (Continuous Integration/Continuous Deployment) spełnia różne funkcje w procesie tworzenia, testowania i wdrażania oprogramowania w kontenerach. Chociaż Dockerfile jest kluczowym elementem w budowaniu obrazów Dockerowych, serwer budowania wprowadza dodatkowe korzyści. Oto kilka powodów, dla których warto używać serwera budowania w kontekście Docker:</p>
+    <p>Serwer budowania Docker (Docker Build Server) lub inaczej nazywany również usługą CI/CD (Continuous Integration/Continuous Deployment) spełnia różne funkcje w procesie tworzenia, testowania i wdrażania oprogramowania w kontenerach. Chociaż Dockerfile jest kluczowym elementem w budowaniu obrazów Dockerowych, serwer budowania wprowadza dodatkowe korzyści. Oto kilka powodów, dla których warto używać serwera budowania w kontekście Docker</p>
 
     <ol>
-        <li><strong>Automatyzacja i CI/CD:</strong>
+        <li><h4>Automatyzacja i CI/CD</h4>
             <ul>
                 <li>Serwery budowania są często używane w procesie CI/CD, co pozwala na automatyzację testów, budowania obrazów i wdrażanie aplikacji.</li>
                 <li>Po wprowadzeniu zmian do repozytorium kodu, serwer budowania może automatycznie uruchamiać proces budowy, testowania i wdrożenia, co zwiększa efektywność i redukuje ryzyko wprowadzenia błędów.</li>
             </ul>
         </li>
-        <li><strong>Integracja z wieloma skryptami i narzędziami:</strong>
+        <li><h4>Integracja z wieloma skryptami i narzędziami</h4>
             <ul>
                 <li>Serwery budowania umożliwiają integrację z różnymi narzędziami, skryptami i procesami budowy.</li>
                 <li>Mogą korzystać z różnych rodzajów narzędzi do testowania jednostkowego, statycznego analizowania kodu, lintowania itp., a następnie raportować wyniki z tych narzędzi.</li>
             </ul>
         </li>
-        <li><strong>Łatwa konfiguracja i skalowalność:</strong>
+        <li><h4>Łatwa konfiguracja i skalowalność</h4>
             <ul>
                 <li>Serwery budowania oferują zazwyczaj łatwą konfigurację, która pozwala na dostosowanie procesu budowy do indywidualnych potrzeb projektu.</li>
                 <li>Są często skalowalne i mogą być używane do jednoczesnej obsługi wielu projektów i kontenerów.</li>
             </ul>
         </li>
-        <li><strong>Cache i przechowywanie wyników:</strong>
+        <li><h4>Cache i przechowywanie wyników</h4>
             <ul>
                 <li>Serwery budowania mogą implementować mechanizmy pamięci podręcznej (cache), które pozwalają na przechowywanie wyników poprzednich budowań, co przyspiesza kolejne budowania.</li>
                 <li>Zarządzają także przekazywaniem artefaktów, takich jak obrazy Dockerowe, do odpowiednich repozytoriów i rejestrów kontenerów.</li>
             </ul>
         </li>
-        <li><strong>Łatwa konfiguracja środowiska:</strong>
+        <li><h4>Łatwa konfiguracja środowiska</h4>
             <ul>
                 <li>Serwery budowania pomagają w konfiguracji środowiska budowy, zarządzając zależnościami, wersjami narzędzi i ułatwiając utrzymanie spójności środowiska.</li>
             </ul>
         </li>
-        <li><strong>Bezpieczeństwo:</strong>
+        <li><h4>Bezpieczeństwo</h4>
             <ul>
                 <li>Serwery budowania mogą implementować zabezpieczenia i kontrole dostępu, co jest ważne w kontekście budowy i wdrażania oprogramowania, szczególnie w środowiskach produkcyjnych.</li>
             </ul>
         </li>
-        <li><strong>Monitoring i raportowanie:</strong>
+        <li><h4>Monitoring i raportowanie</h4>
             <ul>
                 <li>Serwery budowania umożliwiają monitorowanie postępu procesu budowy, raportowanie błędów oraz analizę wydajności procesu CI/CD.</li>
             </ul>
@@ -55,12 +56,12 @@
 
     <p>Podsumowując, serwery budowania są integralną częścią procesu CI/CD, a ich użycie pomaga w automatyzacji, skonfigurowaniu i zarządzaniu pełnym cyklem życia wytwarzania oprogramowania, w tym procesem tworzenia obrazów Dockerowych. Chociaż Dockerfile jest kluczowym elementem, serwery budowania dodają warstwę automatyzacji, bezpieczeństwa i skonfigurowania, co jest szczególnie istotne w środowiskach deweloperskich i produkcyjnych.</p>
 
-    <h2>Wieloetapowe pliki Dockerfile</h2>
+    <h3>Wieloetapowe pliki Dockerfile</h3>
 
-    <p>Wieloetapowe pliki Dockerfile to podejście, które pozwala na zdefiniowanie etapów procesu budowania obrazu kontenera. Każdy etap reprezentuje określoną fazę budowy, co umożliwia optymalne wykorzystanie pamięci podręcznej (cache) i redukcję rozmiaru ostatecznego obrazu. Poniżej znajdziesz przykład wieloetapowego pliku Dockerfile dla aplikacji napisanej w języku Go:</p>
+    <p>Wieloetapowe pliki Dockerfile to podejście, które pozwala na zdefiniowanie etapów procesu budowania obrazu kontenera. Każdy etap reprezentuje określoną fazę budowy, co umożliwia optymalne wykorzystanie pamięci podręcznej (cache) i redukcję rozmiaru ostatecznego obrazu. Poniżej znajdziesz przykład wieloetapowego pliku Dockerfile dla aplikacji napisanej w języku Go</p>
 
     <pre><code># Etap budowy
-FROM golang:1.16 AS builder
+FROM golang1.16 AS builder
 
 # Ustawienie katalogu roboczego wewnątrz kontenera
 WORKDIR /app
@@ -72,7 +73,7 @@ COPY . .
 RUN go build -o myapp
 
 # Etap produkcyjny
-FROM alpine:latest
+FROM alpinelatest
 
 # Ustawienie katalogu roboczego wewnątrz kontenera
 WORKDIR /app
@@ -83,19 +84,19 @@ COPY --from=builder /app/myapp .
 # Domyślne polecenie do uruchomienia aplikacji
 CMD ["./myapp"]
     </code></pre>
-    <p>W powyższym przykładzie mamy dwa etapy:</p>
+    <p>W powyższym przykładzie mamy dwa etapy</p>
 
     <ol>
-        <li><strong>Etap budowy (`builder`):</strong>
+        <li><h4>Etap budowy (`builder`)</h4>
             <ul>
-                <li>Wykorzystuje obraz **`golang:1.16`** jako bazowy (obraz Go zainstalowanym).</li>
+                <li>Wykorzystuje obraz **`golang1.16`** jako bazowy (obraz Go zainstalowanym).</li>
                 <li>Ustawia katalog roboczy, kopiuje pliki źródłowe, a następnie buduje aplikację.</li>
                 <li>W efekcie końcowym otrzymujemy skompilowany plik binarny o nazwie **`myapp`**.</li>
             </ul>
         </li>
-        <li><strong>Etap produkcyjny:</strong>
+        <li><h4>Etap produkcyjny</h4>
             <ul>
-                <li>Wykorzystuje lekki obraz **`alpine:latest`** jako bazowy (obraz z systemem Alpine Linux).</li>
+                <li>Wykorzystuje lekki obraz **`alpinelatest`** jako bazowy (obraz z systemem Alpine Linux).</li>
                 <li>Ustawia katalog roboczy, a następnie kopiuje skompilowany plik binarny **`myapp`** z poprzedniego etapu.</li>
                 <li>Domyślne polecenie CMD uruchamia aplikację.</li>
             </ul>
