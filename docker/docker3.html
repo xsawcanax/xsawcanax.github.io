@@ -27,7 +27,7 @@
     <pre><code>docker container run -p host_port:container_port nazwa_uzytkownika/nazwa_obrazu:tag</code></pre>
     <p>Dla przykładu z serwerem Nginx:</p>
     <pre><code>docker container run -p 8080:80 nginx:latest</code></pre>
-    <p>Opcja <code>-p</code></pre> przekierowuje porty, więc aplikacja w kontenerze będzie dostępna na <pre><code>http://localhost:8080</code></pre>.</p>
+    <p>Opcja <code>-p</code></pre> przekierowuje porty, więc aplikacja w kontenerze będzie dostępna na <pre><code>http://localhost:8080</code></pre></p>
 
     <h4>Przeglądanie Obrazów i Kontenerów</h4>
     <p>Możesz sprawdzić dostępne obrazy za pomocą polecenia:</p>
@@ -85,7 +85,7 @@
 
     <p>Znajdziesz swój obraz na liście wraz z informacjami, takimi jak ID obrazu, nazwa i tag.</p>
 
-    <h4>Teraz masz własny zbudowany obraz, który możesz uruchomić jako kontener. Aby to zrobić, użyj polecenia <pre><code>docker run</code></pre>:</h3>
+    <h4>Teraz masz własny zbudowany obraz, który możesz uruchomić jako kontener. Aby to zrobić, użyj polecenia:</h3>
     <pre><code>docker container run -p PORT_HOST:PORT_CONTAINER nazwa-obrazu</code></pre>
 
     <p>Zastąp <pre><code>PORT_HOST</code></pre> numerem portu na twoim hoście, a <pre><code>PORT_CONTAINER</code></pre> numerem portu, na którym działa Twoja aplikacja wewnątrz kontenera.</p>
@@ -97,7 +97,7 @@
 
     <ol>
         <li><strong>Użyj konkretnego obrazu bazowego:</strong><br>
-            Zamiast używać ogólnego obrazu, takiego jak <pre><code>ubuntu:latest</code></pre>, użyj konkretnej wersji, na przykład <pre><code>ubuntu:18.04</code></pre>. To pozwala na uniknięcie niespodziewanych zmian w warstwie obrazu bazowego.
+            Zamiast używać ogólnego obrazu, takiego jak <pre><code>ubuntu:latest</code></pre>użyj konkretnej wersji, na przykład <pre><code>ubuntu:18.04</code></pre> To pozwala na uniknięcie niespodziewanych zmian w warstwie obrazu bazowego.
             <pre><code>FROM ubuntu:18.04</code></pre>
         </li>
         <li><strong>Uporządkuj instrukcje:</strong><br>
@@ -116,13 +116,13 @@
                 rm -rf /var/lib/apt/lists/*</code></pre>
         </li>
         <li><strong>Używaj .dockerignore:</strong><br>
-            Użyj pliku <pre><code>.dockerignore</code></pre>, aby pomóc zredukować ilość przesyłanych plików podczas budowy obrazu. Unikaj kopiowania zbędnych plików, takich jak pliki tymczasowe czy pliki konfiguracyjne z IDE.
+            Użyj pliku <pre><code>.dockerignore</code></pre> aby pomóc zredukować ilość przesyłanych plików podczas budowy obrazu. Unikaj kopiowania zbędnych plików, takich jak pliki tymczasowe czy pliki konfiguracyjne z IDE.
         </li>
         <li><strong>Unikaj instalacji zbędnych pakietów:</strong><br>
             Instaluj tylko te pakiety, które są niezbędne do działania aplikacji. Upewnij się, że każda zainstalowana paczka jest faktycznie wymagana.
         </li>
         <li><strong>Czyść niepotrzebne dane w jednym kroku:</strong><br>
-            Jeśli używasz instrukcji <pre><code>RUN</code></pre>, aby instalować pakiety, czyść cache i niepotrzebne pliki w jednym kroku, aby uniknąć dodatkowych warstw obrazu.
+            Jeśli używasz instrukcji <pre><code>RUN</code></pre>aby instalować pakiety, czyść cache i niepotrzebne pliki w jednym kroku, aby uniknąć dodatkowych warstw obrazu.
             <pre><code>RUN apt-get update && \
                 apt-get install -y package1 package2 && \
                 apt-get clean && \
