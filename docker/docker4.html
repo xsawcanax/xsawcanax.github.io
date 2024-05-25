@@ -12,7 +12,6 @@
 
     <p>Serwer budowania Docker (Docker Build Server) lub inaczej nazywany również usługą CI/CD (Continuous Integration/Continuous Deployment) spełnia różne funkcje w procesie tworzenia, testowania i wdrażania oprogramowania w kontenerach. Chociaż Dockerfile jest kluczowym elementem w budowaniu obrazów Dockerowych, serwer budowania wprowadza dodatkowe korzyści. Oto kilka powodów, dla których warto używać serwera budowania w kontekście Docker</p>
 
-    <ol>
         <li><h4>Automatyzacja i CI/CD</h4>
             <ul>
                 <li>Serwery budowania są często używane w procesie CI/CD, co pozwala na automatyzację testów, budowania obrazów i wdrażanie aplikacji.</li>
@@ -52,7 +51,6 @@
                 <li>Serwery budowania umożliwiają monitorowanie postępu procesu budowy, raportowanie błędów oraz analizę wydajności procesu CI/CD.</li>
             </ul>
         </li>
-    </ol>
 
     <p>Podsumowując, serwery budowania są integralną częścią procesu CI/CD, a ich użycie pomaga w automatyzacji, skonfigurowaniu i zarządzaniu pełnym cyklem życia wytwarzania oprogramowania, w tym procesem tworzenia obrazów Dockerowych. Chociaż Dockerfile jest kluczowym elementem, serwery budowania dodają warstwę automatyzacji, bezpieczeństwa i skonfigurowania, co jest szczególnie istotne w środowiskach deweloperskich i produkcyjnych.</p>
 
@@ -86,7 +84,6 @@ CMD ["./myapp"]
     </code></pre>
     <p>W powyższym przykładzie mamy dwa etapy</p>
 
-    <ol>
         <li><h4>Etap budowy (`builder`)</h4>
             <ul>
                 <li>Wykorzystuje obraz **`golang1.16`** jako bazowy (obraz Go zainstalowanym).</li>
@@ -101,7 +98,6 @@ CMD ["./myapp"]
                 <li>Domyślne polecenie CMD uruchamia aplikację.</li>
             </ul>
         </li>
-    </ol>
 
     <p>Dzięki temu podejściu, obraz końcowy zawiera tylko niezbędne pliki do uruchomienia aplikacji, co pozwala na zmniejszenie rozmiaru obrazu i ograniczenie ilości niepotrzebnych zależności. Warto zaznaczyć, że etapy w pliku Dockerfile są odseparowane, co umożliwia korzystanie z mechanizmu pamięci podręcznej dla każdego z nich, co przyspiesza proces budowy.</p>
 
