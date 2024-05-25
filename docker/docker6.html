@@ -11,20 +11,14 @@
     <h3>Dlaczego dane w kontenerach nie są trwałe?</h3>
 
     <p>Dane w kontenerach (takich jak kontenery Docker czy inne technologie do konteneryzacji) są zazwyczaj trwałe do momentu, gdy kontener jest uruchomiony. Jednakże, gdy kontener zostaje zatrzymany i usunięty, wszelkie zmiany dokonane w trakcie działania kontenera mogą zostać utracone. Istnieje kilka powodów, dlaczego dane w kontenerach nie są trwałe:</p>
-
-    
-        <li><h4>Model działania kontenerów:</h4>
+        <h4>Model działania kontenerów</h4>
             Kontenery są oparte na modelu działania warstwowego. Każda zmiana w kontenerze powoduje utworzenie nowej warstwy, a stara warstwa pozostaje niezmieniona. Gdy kontener jest zatrzymywany i usuwany, wszystkie zmiany wprowadzone w trakcie działania kontenera zostają utracone, ponieważ warstwy są tymczasowe i znikają wraz z kontenerem.
-        </li>
-        <li><h4>Skrócony cykl życia:</h4>
+        <h4>Skrócony cykl życia</h4>
             Kontenery są projektowane do krótkiego cyklu życia, co oznacza, że są łatwo tworzone, uruchamiane, zatrzymywane i usuwane. To podejście ma na celu zapewnienie łatwości zarządzania infrastrukturą. Jednakże, trwałość danych często wymagałaby innego podejścia, takiego jak korzystanie z zewnętrznych zasobów (np. woluminów) czy systemów zarządzania danymi.
-        </li>
-        <li><h4>Domyślne zachowanie systemu plików kontenera:</h4>
+        <h4>Domyślne zachowanie systemu plików kontenera</h4>
             Systemy plików w kontenerach składają się z warstw obrazu oraz warstwy zapisywalnej. Modyfikowanie plików w kontenerze nie wpływa na obraz, a dane w warstwie zapisywalnej są ulotne. Oznacza to, że wszelkie zmiany dokonane w trakcie działania kontenera są przechowywane w warstwie tymczasowej, która może zostać utracona po zatrzymaniu kontenera.
-        </li>
-        <li><h4>Woluminy:</h4>
+        <h4>Woluminy</h4>
             Chociaż dane w warstwach kontenera mogą być nietrwałe, można korzystać z mechanizmu woluminów, aby przechowywać dane poza kontenerem. Woluminy są montowane do kontenera i przechowują dane poza warstwami kontenera, co pozwala na trwałe przechowywanie informacji nawet po zatrzymaniu lub usunięciu kontenera.
-        </li>
     
 
     <p>Aby przechowywać dane trwale w kontenerach, często stosuje się techniki takie jak korzystanie z woluminów, zarządzanie danymi na poziomie hosta lub korzystanie z zewnętrznych rozwiązań do przechowywania danych, które są niezależne od cyklu życia kontenera.</p>
@@ -46,17 +40,11 @@
   
     <h3>Uruchamianie kontenerów z dowiązaniami systemu plików</h3>
     <p>Aby uruchomić kontener z dowiązaniami systemu plików w Dockerze, można wykorzystać flagę <code>--mount</code> lub <code>-v</code> w poleceniu <code>docker run</code>.</p>
-    <div class="code-container">
         <pre><code>docker run --mount type=bind,source=/ścieżka/do/lokalnego/katalogu,target=/ścieżka/w/kontenerze nazwa_obrazu</code></pre>
-    </div>
     <p>Na przykład, aby uruchomić kontener na podstawie obrazu o nazwie <code>moj_obraz</code>, który będzie miał dostęp do katalogu <code>/app</code> wewnątrz kontenera i zmapować lokalny katalog <code>/home/user/moja_aplikacja</code> do tego katalogu, użyj poniższego polecenia:</p>
-    <div class="code-container">
         <pre><code>docker run --mount type=bind,source=/home/user/moja_aplikacja,target=/app moj_obraz</code></pre>
-    </div>
     <p>Można również użyć flagi <code>-v</code>, co jest skrótem dla <code>--mount type=bind</code>.</p>
-    <div class="code-container">
         <pre><code>docker run -v /ścieżka/do/lokalnego/katalogu:/ścieżka/w/kontenerze nazwa_obrazu</code></pre>
-    </div>
     <p>W ten sposób możesz zapewnić dostęp do danych pomiędzy lokalnym systemem plików a kontenerem Dockerowym.</p>
 
     <h3>Ograniczenia dowiązań</h3>
