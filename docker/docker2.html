@@ -13,23 +13,17 @@
             <h4>Zainstaluj Docker:</h4>
             Upewnij się, że Docker jest zainstalowany na Twoim systemie. Możesz pobrać go z oficjalnej strony Docker: <a href="https://www.docker.com/get-started" target="_blank">https://www.docker.com/get-started</a>.
     
-        
             <h4>Przygotuj obraz:</h4><br>
             Jeśli nie masz obrazu aplikacji, który chciałbyś użyć, musisz go przygotować. Możesz utworzyć plik Dockerfile, który zawiera instrukcje do zbudowania obrazu na podstawie Twojej aplikacji. (O tym więcej w <a href="docker3.html">rozdziale trzecim</a>)
-        
         
             <h4>Zbuduj obraz:</h4><br>
             Otwórz terminal w katalogu zawierającym Dockerfile i wykonaj polecenie: <pre><code>docker build -t nazwa_obrazu:tag .</code></pre>
         
-        
             <h4>Uruchom kontener:</h4><br>
             Po zbudowaniu obrazu możesz uruchomić kontener: <pre><code>docker container run -p 3000:3000 nazwa_obrazu:tag</code></pre><br>
             Opcja <pre><code>-p</code></pre> przekierowuje porty, więc jeśli Twoja aplikacja działa na porcie 3000, to będzie dostępna na porcie 3000 na Twoim lokalnym systemie.
-        
     </div>
-
     <h3>Nawiązywanie połączenia z kontenerem</h3>
-
     <p>Aby nawiązać połączenie z kontenerem, możesz użyć kilku różnych metod, w zależności od tego, co chcesz osiągnąć. Oto kilka popularnych sposobów:</p>
         <h4>Uruchamianie interaktywnego trybu kontenera:</h4><br>
             <pre><code>docker run -it nazwa_obrazu </code></pre> - To polecenie uruchomi kontener w trybie interaktywnym, co pozwoli Ci na bezpośrednie korzystanie z powłoki wewnątrz kontenera.
