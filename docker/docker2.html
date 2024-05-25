@@ -26,16 +26,16 @@
     <h3>Nawiązywanie połączenia z kontenerem</h3>
     <p>Aby nawiązać połączenie z kontenerem, możesz użyć kilku różnych metod, w zależności od tego, co chcesz osiągnąć. Oto kilka popularnych sposobów:</p>
         <h4>Uruchamianie interaktywnego trybu kontenera:</h4>
-            <pre><code>docker run -it nazwa_obrazu </code></pre> - To polecenie uruchomi kontener w trybie interaktywnym, co pozwoli Ci na bezpośrednie korzystanie z powłoki wewnątrz kontenera.
+            <pre><code>docker run -it nazwa_obrazu </code></pre> To polecenie uruchomi kontener w trybie interaktywnym, co pozwoli Ci na bezpośrednie korzystanie z powłoki wewnątrz kontenera.
         
         <h4>Uruchamianie polecenia w kontenerze:</h4>
-            <pre><code>docker exec -it nazwa_kontenera polecenie</code></pre> - Polecenie <pre><code>docker exec</code></pre> pozwala uruchamiać polecenia w działającym kontenerze. To umożliwia interakcję z kontenerem, nie wchodząc w tryb interaktywny.
+            <pre><code>docker exec -it nazwa_kontenera polecenie</code></pre> Polecenie <pre><code>docker exec</code></pre> pozwala uruchamiać polecenia w działającym kontenerze. To umożliwia interakcję z kontenerem, nie wchodząc w tryb interaktywny.
         
         <h4>Uruchamianie aplikacji w tle:</h4>
-            Jeśli chcesz uruchomić kontener w tle i nawiązać z nim połączenie później, możesz użyć: <pre><code>docker container run -d nazwa_obrazu</code></pre> - A następnie użyj <pre><code>docker exec</code></pre> do uruchomienia poleceń w kontenerze.
+            Jeśli chcesz uruchomić kontener w tle i nawiązać z nim połączenie później, możesz użyć: <pre><code>docker container run -d nazwa_obrazu</code></pre> A następnie użyj <pre><code>docker exec</code></pre> do uruchomienia poleceń w kontenerze.
         
         <h4>Port Forwarding:</h4>
-            Jeśli aplikacja w kontenerze udostępnia usługę sieciową (np. serwer HTTP) i chcesz uzyskać do niej dostęp z hosta, użyj przekierowania portów: <pre><code>docker run -p host_port:container_port nazwa_obrazu</code></pre> - Następnie możesz połączyć się z aplikacją w kontenerze za pomocą <pre><code>localhost:host_port</code></pre>.
+            Jeśli aplikacja w kontenerze udostępnia usługę sieciową (np. serwer HTTP) i chcesz uzyskać do niej dostęp z hosta, użyj przekierowania portów: <pre><code>docker run -p host_port:container_port nazwa_obrazu</code></pre> Następnie możesz połączyć się z aplikacją w kontenerze za pomocą <pre><code>localhost:host_port</code></pre>
         
         <h4>Docker Compose:</h4>
             Jeśli używasz Docker Compose, możesz skonfigurować usługi w pliku <pre><code>docker-compose.yml</code></pre> i następnie użyć <pre><code>docker-compose exec</code></pre> do wykonywania poleceń w kontenerze.
