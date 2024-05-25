@@ -6,29 +6,30 @@
     <title>Dlaczego dane w kontenerach nie są trwałe?</title>
     <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-    <h1>Dlaczego dane w kontenerach nie są trwałe?</h1>
+<body
+    <h2>Stosowanie woluminów Dockera do trwałego przechowywania danych</h2>
+    <h3>Dlaczego dane w kontenerach nie są trwałe?</h3>
 
     <p>Dane w kontenerach (takich jak kontenery Docker czy inne technologie do konteneryzacji) są zazwyczaj trwałe do momentu, gdy kontener jest uruchomiony. Jednakże, gdy kontener zostaje zatrzymany i usunięty, wszelkie zmiany dokonane w trakcie działania kontenera mogą zostać utracone. Istnieje kilka powodów, dlaczego dane w kontenerach nie są trwałe:</p>
 
-    <ol>
-        <li><strong>Model działania kontenerów:</strong>
+    
+        <li><h4>Model działania kontenerów:</h4>
             Kontenery są oparte na modelu działania warstwowego. Każda zmiana w kontenerze powoduje utworzenie nowej warstwy, a stara warstwa pozostaje niezmieniona. Gdy kontener jest zatrzymywany i usuwany, wszystkie zmiany wprowadzone w trakcie działania kontenera zostają utracone, ponieważ warstwy są tymczasowe i znikają wraz z kontenerem.
         </li>
-        <li><strong>Skrócony cykl życia:</strong>
+        <li><h4>Skrócony cykl życia:</h4>
             Kontenery są projektowane do krótkiego cyklu życia, co oznacza, że są łatwo tworzone, uruchamiane, zatrzymywane i usuwane. To podejście ma na celu zapewnienie łatwości zarządzania infrastrukturą. Jednakże, trwałość danych często wymagałaby innego podejścia, takiego jak korzystanie z zewnętrznych zasobów (np. woluminów) czy systemów zarządzania danymi.
         </li>
-        <li><strong>Domyślne zachowanie systemu plików kontenera:</strong>
+        <li><h4>Domyślne zachowanie systemu plików kontenera:</h4>
             Systemy plików w kontenerach składają się z warstw obrazu oraz warstwy zapisywalnej. Modyfikowanie plików w kontenerze nie wpływa na obraz, a dane w warstwie zapisywalnej są ulotne. Oznacza to, że wszelkie zmiany dokonane w trakcie działania kontenera są przechowywane w warstwie tymczasowej, która może zostać utracona po zatrzymaniu kontenera.
         </li>
-        <li><strong>Woluminy:</strong>
+        <li><h4>Woluminy:</h4>
             Chociaż dane w warstwach kontenera mogą być nietrwałe, można korzystać z mechanizmu woluminów, aby przechowywać dane poza kontenerem. Woluminy są montowane do kontenera i przechowują dane poza warstwami kontenera, co pozwala na trwałe przechowywanie informacji nawet po zatrzymaniu lub usunięciu kontenera.
         </li>
-    </ol>
+    
 
     <p>Aby przechowywać dane trwale w kontenerach, często stosuje się techniki takie jak korzystanie z woluminów, zarządzanie danymi na poziomie hosta lub korzystanie z zewnętrznych rozwiązań do przechowywania danych, które są niezależne od cyklu życia kontenera.</p>
     
-    <h1>Uruchomianie kontenerów z woluminami Dockera</h1>
+    <h3>Uruchomianie kontenerów z woluminami Dockera</h3>
     <p>Aby uruchomić kontener z woluminami w Dockerze, użyj flagi <code>-v</code> lub <code>--volume</code> w poleceniu <code>docker run</code>, aby zmapować lokalny katalog na katalog wewnątrz kontenera.</p>
     <div class="code-container">
         <pre><code>docker run -v /ścieżka/do/lokalnego/katalogu1:/ścieżka/do/katalogu1/w/kontenerze -v /ścieżka/do/lokalnego/katalogu2:/ścieżka/do/katalogu2/w/kontenerze nazwa_obrazu</code></pre>
@@ -43,7 +44,7 @@
     </div>
     <p>W ten sposób możesz zapewnić dostęp do danych pomiędzy lokalnym systemem plików a kontenerem Dockerowym.</p>
   
-    <h1>Uruchamianie kontenerów z dowiązaniami systemu plików</h1>
+    <h3>Uruchamianie kontenerów z dowiązaniami systemu plików</h3>
     <p>Aby uruchomić kontener z dowiązaniami systemu plików w Dockerze, można wykorzystać flagę <code>--mount</code> lub <code>-v</code> w poleceniu <code>docker run</code>.</p>
     <div class="code-container">
         <pre><code>docker run --mount type=bind,source=/ścieżka/do/lokalnego/katalogu,target=/ścieżka/w/kontenerze nazwa_obrazu</code></pre>
@@ -58,7 +59,7 @@
     </div>
     <p>W ten sposób możesz zapewnić dostęp do danych pomiędzy lokalnym systemem plików a kontenerem Dockerowym.</p>
 
-    <h1>Ograniczenia dowiązań</h1>
+    <h3>Ograniczenia dowiązań</h3>
     <p>Ograniczenia dowiązań mogą prowadzić do pewnych problemów w kontenerach Dockerowych. Mimo że są one przydatne, mają swoje ograniczenia:</p>
     <ul>
         <li>Nie można montować pojedynczego pliku, tylko katalogi (dotyczy systemu Windows).W kontenerach z systemem Linux możliwe jest dowiązywanie pojedynczych plików. Jeżeli katalog docelowy będzie istnieć, to domontowany plik zostanie scalony z zawartością katalogu. Natomiast w kontenerach z systemem Windows nie można dowiązywać pojedynczych plików. Pojawi się błąd "invalid mount config".</li>
@@ -68,22 +69,22 @@
     </ul>
     <p>Przy projektowaniu systemów z użyciem dowiązań systemu plików, należy uwzględnić te ograniczenia i zastanowić się, czy spełniają one wymagania projektu.</p>
 
-    <h1>Konstrukcja systemu plików kontenera</h1>
+    <h3>Konstrukcja systemu plików kontenera</h3>
     <p>Konstrukcja systemu plików kontenera jest złożona i składa się z kilku kluczowych elementów, które zapewniają jego funkcjonalność i elastyczność:</p>
     
-    <h2>Warstwa zapisywalna</h2>
+    <h4>Warstwa zapisywalna</h4>
     <p>Warstwa zapisywalna jest tworzona przy uruchomieniu kontenera i jest miejscem, gdzie wszystkie zmiany w systemie plików są zapisywane. Jest to tymczasowa warstwa, która przestaje istnieć po zatrzymaniu i usunięciu kontenera.</p>
     
-    <h2>Dowiązania lokalne</h2>
+    <h4>Dowiązania lokalne</h4>
     <p>Dowiązania lokalne (bind mounts) pozwalają na mapowanie katalogów lub plików z hosta do kontenera. Umożliwiają one bezpośredni dostęp do danych hosta z kontenera, co jest przydatne w wielu scenariuszach, takich jak rozwój oprogramowania i debugowanie.</p>
     
-    <h2>Dowiązania rozproszone</h2>
+    <h4>Dowiązania rozproszone</h4>
     <p>Dowiązania rozproszone (distributed file system mounts) umożliwiają dostęp do danych przechowywanych w zewnętrznych systemach plików rozproszonych. Są one użyteczne w dużych, skalowalnych środowiskach, gdzie dostęp do wspólnych zasobów plikowych jest kluczowy.</p>
     
-    <h2>Montowane woluminy</h2>
+    <h4>Montowane woluminy</h4>
     <p>Montowane woluminy (volumes) są specjalnym mechanizmem Dockera, który pozwala na trwałe przechowywanie danych poza cyklem życia kontenera. Woluminy są przechowywane na hosta i mogą być łatwo udostępniane między różnymi kontenerami.</p>
     
-    <h2>Warstwy obrazu</h2>
+    <h4>Warstwy obrazu</h4>
     <p>Warstwy obrazu są bazowymi warstwami niezmiennymi, z których zbudowany jest kontener. Każdy obraz Dockera składa się z serii warstw, które są używane wspólnie przez różne kontenery, co pozwala na efektywne zarządzanie zasobami i oszczędność miejsca.</p>
 </body>
 </html>
