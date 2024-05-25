@@ -6,46 +6,46 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <h1>Tworzenie własnych obrazów Dockera</h1>
+    <h2>Tworzenie własnych obrazów Dockera</h2>
 
-    <h2>Stosowanie obrazu kontenera z serwisu Docker Hub</h2>
+    <h3>Stosowanie obrazu kontenera z serwisu Docker Hub</h3>
 
     <p>Aby użyć obrazu kontenera z serwisu Docker Hub, wykonaj poniższe kroki:</p>
 
-    <h3>1. Wyszukaj Obraz:</h3>
+    <h4>Wyszukaj Obraz</h4>
     <p>Otwórz terminal i użyj polecenia <code>docker search</code>, aby znaleźć interesujący cię obraz na Docker Hub:</p>
     <pre><code>docker search nazwa_obrazu</code></pre>
 
-    <h3>2. Pobierz Obraz:</h3>
+    <h4>Pobierz Obraz</h4>
     <p>Użyj polecenia <code>docker pull</code>, aby pobrać obraz na swój lokalny system:</p>
     <pre><code>docker pull nazwa_uzytkownika/nazwa_obrazu:tag</code></pre>
     <p>Na przykład:</p>
     <pre><code>docker pull nginx:latest</code></pre>
 
-    <h3>3. Uruchom Kontener:</h3>
+    <h4>Uruchom Kontener</h4>
     <p>Uruchom kontener na podstawie pobranego obrazu:</p>
     <pre><code>docker container run -p host_port:container_port nazwa_uzytkownika/nazwa_obrazu:tag</code></pre>
     <p>Dla przykładu z serwerem Nginx:</p>
     <pre><code>docker container run -p 8080:80 nginx:latest</code></pre>
     <p>Opcja <code>-p</code> przekierowuje porty, więc aplikacja w kontenerze będzie dostępna na <code>http://localhost:8080</code>.</p>
 
-    <h3>4. Przeglądanie Obrazów i Kontenerów:</h3>
+    <h4>Przeglądanie Obrazów i Kontenerów</h4>
     <p>Możesz sprawdzić dostępne obrazy za pomocą polecenia:</p>
     <pre><code>docker images</code></pre>
     <p>Aby zobaczyć uruchomione kontenery:</p>
     <pre><code>docker ps</code></pre>
 
-    <h3>5. Zatrzymywanie i Usuwanie Kontenerów:</h3>
+    <h4>Zatrzymywanie i Usuwanie Kontenerów</h4>
     <p>Aby zatrzymać kontener, użyj polecenia:</p>
     <pre><code>docker stop ID_kontenera</code></pre>
     <p>Aby usunąć kontener:</p>
     <pre><code>docker rm ID_kontenera</code></pre>
 
-    <h3>6. Zatrzymywanie i Usuwanie Obrazów:</h3>
+    <h4>Zatrzymywanie i Usuwanie Obrazów</h4>
     <p>Aby zatrzymać obraz, użyj polecenia:</p>
     <pre><code>docker rmi nazwa_uzytkownika/nazwa_obrazu:tag</code></pre>
 
-    <h3>7. Dodatkowe opcje:</h3>
+    <h4>Dodatkowe opcje</h4>
     <ul>
         <li>Jeśli obraz wymaga uwierzytelnienia (prywatny obraz), użyj <code>docker login</code> przed pobraniem obrazu.</li>
         <li>Jeśli potrzebujesz dostarczyć dane do kontenera (np. pliki konfiguracyjne), użyj opcji <code>-v</code> do mapowania katalogów.</li>
@@ -53,46 +53,46 @@
     <p>Przykład:</p>
     <pre><code>docker run -v /sciezka/lokalna:/sciezka/w_kontenerze -p 8080:80 nazwa_uzytkownika/nazwa_obrazu:tag</code></pre>
 
-    <h2>Pisanie pliku Dockerfile</h2>
+    <h3>Pisanie pliku Dockerfile</h3>
 
     <p>Pisanie pliku Dockerfile jest kluczowym krokiem w tworzeniu obrazu Dockerowego. Dockerfile to plik tekstowy zawierający polecenia, które Docker wykorzystuje do automatycznego budowania obrazu. Poniżej znajdziesz prosty przykład pliku.</p>
 
     <p><a href="docker3przyklad.html">Przykład</a></p>
 
-    <h2>Budowanie własnego obrazu kontenera</h1>
+    <h3>Budowanie własnego obrazu kontenera</h2>
 
-    <h3>1. Napisz Dockerfile:</h2>
+    <h4>Napisz Dockerfile</h3>
     <p>Stwórz plik Dockerfile zawierający instrukcje budowy obrazu. Przykład był wcześniej przedstawiony. Możesz dostosować ten plik do swoich potrzeb w zależności od aplikacji i technologii, której używasz.</p>
 
-    <h3>2. Przygotuj pliki projektu:</h2>
+    <h4>Przygotuj pliki projektu</h3>
     <p>Umieść plik Dockerfile w katalogu projektu. Upewnij się, że Dockerfile znajduje się razem z innymi plikami i kodem źródłowym, które są niezbędne do zbudowania i uruchomienia aplikacji.</p>
 
-    <h3>3. Otwórz terminal:</h2>
+    <h4>Otwórz terminal</h3>
     <p>Uruchom terminal lub wiersz poleceń, a następnie przejdź do katalogu projektu, gdzie znajduje się Dockerfile.</p>
 
-    <h3>4. Uruchom polecenie docker build:</h2>
+    <h4>Uruchom polecenie docker build</h3>
     <p>Użyj poniższego polecenia, aby zbudować obraz Dockerowy. Zastąp <code>nazwa-obrazu</code> dowolną nazwą, którą chcesz przypisać swojemu obrazowi.</p>
     <code>docker build -t nazwa-obrazu .</code>
 
     <p>Opcja <code>-t</code> umożliwia nadanie obrazowi taga (nazwy). Kropka na końcu oznacza bieżący katalog jako kontekst budowy dla Dockerfile.</p>
 
-    <h3>5. Poczekaj na zakończenie budowy:</h2>
+    <h4>Poczekaj na zakończenie budowy</h3>
     <p>Docker przetworzy instrukcje z Dockerfile i zbuduje obraz. W tym procesie zainstalowane zostaną wszystkie zależności i skopiowane pliki aplikacji.</p>
 
-    <h3>6. Sprawdź zbudowany obraz:</h2>
+    <h4>Sprawdź zbudowany obraz</h3>
     <p>Po zakończeniu budowy obrazu możesz sprawdzić jego dostępność za pomocą poniższego polecenia:</p>
     <code>docker images</code>
 
     <p>Znajdziesz swój obraz na liście wraz z informacjami, takimi jak ID obrazu, nazwa i tag.</p>
 
-    <h3>Teraz masz własny zbudowany obraz, który możesz uruchomić jako kontener. Aby to zrobić, użyj polecenia <code>docker run</code>:</h2>
+    <h4>Teraz masz własny zbudowany obraz, który możesz uruchomić jako kontener. Aby to zrobić, użyj polecenia <code>docker run</code>:</h3>
     <code>docker container run -p PORT_HOST:PORT_CONTAINER nazwa-obrazu</code>
 
     <p>Zastąp <code>PORT_HOST</code> numerem portu na twoim hoście, a <code>PORT_CONTAINER</code> numerem portu, na którym działa Twoja aplikacja wewnątrz kontenera.</p>
 
-    <h3>Docker korzysta z systemu warstw obrazów, co umożliwia efektywne dzielenie i ponowne użycie komponentów obrazów. Każda instrukcja w Dockerfile powoduje utworzenie nowej warstwy obrazu. Warstwy te są następnie łączone w jedną całość, a wynikowy obraz składa się z tych warstw.</h2>
+    <h4>Docker korzysta z systemu warstw obrazów, co umożliwia efektywne dzielenie i ponowne użycie komponentów obrazów. Każda instrukcja w Dockerfile powoduje utworzenie nowej warstwy obrazu. Warstwy te są następnie łączone w jedną całość, a wynikowy obraz składa się z tych warstw.</h3>
 
-    <h2>Optymalizacja plików Dockerfile pod kątem wykorzystania pamięci podręcznej warstw obrazów</h2>
+    <h3>Optymalizacja plików Dockerfile pod kątem wykorzystania pamięci podręcznej warstw obrazów</h3>
     <p>Optymalizacja pliku Dockerfile pod kątem wykorzystania pamięci podręcznej warstw obrazów jest ważna, ponieważ pozwala na skorzystanie z mechanizmu pamięci podręcznej (cache) warstw w celu przyspieszenia procesu budowy obrazu. Oto kilka praktyk, które pomogą zoptymalizować Dockerfile:</p>
 
     <ol>
