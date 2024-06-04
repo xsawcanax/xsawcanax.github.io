@@ -49,3 +49,6 @@ th {
   background-color: #eee; /* Kolor tła nagłówków */
   font-weight: bold; /* Pogrubiony tekst w nagłówkach */
 }
+li {
+    font-size: 90%; /* Zmniejszenie rozmiaru tekstu o 10% w stosunku do domyślnego */
+  }
